@@ -1,10 +1,11 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { lazy } from 'react'
 import './index.css'
-import App from './App.jsx'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+const App = lazy(() => import('./App.jsx'))
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <BrowserRouter>
     <App />
-  </StrictMode>,
+  </BrowserRouter>,
 )
