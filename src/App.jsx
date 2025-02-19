@@ -1,13 +1,9 @@
-import './App.css'
+import { useState } from "react"
+import Router from "./router/router"
 
 function App() {
-
-
-  return (
-    <>
-
-    </>
-  )
+  const [allRoutes, setAllRoutes] = useState([])
+  return <Router allRoutes={allRoutes}/>
 }
 
 export default App
