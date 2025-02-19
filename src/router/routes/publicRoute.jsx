@@ -1,8 +1,10 @@
-import { lazy } from "react";
+
+import Login from './../../views/auth/Login';
+import Register from './../../views/auth/Register';
 
 // Define your lazy components
-const Login = lazy(() => import('./../../views/auth/Login'));
-const Register = lazy(() => import('./../../views/auth/Register'));
+
+
 
 
 const PublicRoutes =[

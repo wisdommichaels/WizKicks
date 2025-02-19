@@ -6,6 +6,6 @@ const App = lazy(() => import('./App.jsx'))
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <App />
+    <App/>
   </BrowserRouter>,
 )

@@ -1,7 +1,8 @@
 // Desc: Register page
 // Team: WizKicks
 import { Link } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa";
+
+// Import icons
 
 const Register = () => {
     return (
@@ -59,7 +60,10 @@ const Register = () => {
                             <i className="fab fa-twitter text-white"></i>
                         </div>
                         <div className="bg-[#db4437] w-8 h-8 rounded-full flex items-center justify-center">
-                            <FaGoogle className="text-white" />
+                            <i className="fab fa-google text-white"></i>
+                            <span>
+                               <img className="w-3 h-3" src="src/assets/icons8-google.svg" alt="" />
+                            </span>
                         </div>
                     </div>
                 </form>           
