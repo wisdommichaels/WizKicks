@@ -1,6 +1,9 @@
+import { lazy } from 'react';
 
-import Login from './../../views/auth/Login';
-import Register from './../../views/auth/Register';
+// Import your components
+const Admin = lazy(() => import('../../views/auth/Admin'));
+const Login = lazy(() => import('../../views/auth/Login'));
+const Register = lazy(() => import('../../views/auth/Register'));
 
 // Define your lazy components
 
@@ -16,6 +19,10 @@ const PublicRoutes =[
     {
         path: '/register',
         element: <Register/>,
+    },
+    {
+        path: '/admin/login',
+        element: <Admin/>,
     }
 
 ]

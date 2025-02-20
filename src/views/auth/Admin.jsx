@@ -7,7 +7,7 @@ import { useState } from "react";
 
 // Import icons
 
-const Login = () => {
+const AdminLogin = () => {
 
     const[state, setState] = useState({
         email: "",
@@ -58,25 +58,6 @@ const Login = () => {
                         </Link>
                     </p>
 
-                    <div className="flex items-center justify-center gap-2 my-2">
-                        <hr className="w-1/4 border border-slate-700" />
-                        <p className="text-[12px] text-center">Or Login With</p>
-                        <hr className="w-1/4 border border-slate-700" />
-
-                    </div>
-                    <div className="flex justify-center gap-3">
-                        <div className="bg-[#db4437] w-[125px] h-[35px] rounded-full flex items-center justify-center shadow-lg hover:shadow-orange-700/50 cursor-pointer overflow-hidden">
-                            <span>
-                               <img className="w-4 h-4" src="src/assets/icons8-google.svg" alt="google logo" />
-                            </span>
-                        </div>
-                        <div className="bg-blue-600 w-[125px] h-[35px] rounded-full flex items-center justify-center shadow-lg hover:shadow-blue-500/50 cursor-pointer overflow-hidden">
-                            <span>
-                               <img className="w-5 h-5" src="src/assets/icons8-facebook (1).svg" alt="facebook logo" />
-                            </span>
-                        </div>
-
-                    </div>
                 </form>           
      
                </div>
@@ -85,4 +66,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default AdminLogin;
