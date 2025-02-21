@@ -4,10 +4,13 @@
 // Team: WizKicks
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { admin_login } from "../../store/reducers/authReducer";
 
 // Import icons
 
 const AdminLogin = () => {
+    const dispatch = useDispatch();
 
     const[state, setState] = useState({
         email: "",
@@ -24,7 +27,8 @@ const AdminLogin = () => {
     
     const submit = (e) => {
         e.preventDefault();
-        console.log(state);
+        dispatch(admin_login (state));
+        // console.log(state);
     }
 
 
