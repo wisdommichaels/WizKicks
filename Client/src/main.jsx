@@ -19,13 +19,13 @@ createRoot(document.getElementById('root')).render(
           backgroundColor: '#ff9f6b',
           color: 'white',
         },
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        limit: 3,
+        // autoClose: 5000,
+        // hideProgressBar: false,
+        // closeOnClick: true,
+        // pauseOnHover: true,
+        // draggable: true,
+        // progress: undefined,
+        // limit: 3,
       }}
     />
   </Suspense>

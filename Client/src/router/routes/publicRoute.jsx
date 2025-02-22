@@ -8,8 +8,6 @@ const Register = lazy(() => import('../../views/auth/Register'));
 // Define your lazy components
 
 
-
-
 const PublicRoutes =[
     // define your public routes here
     {

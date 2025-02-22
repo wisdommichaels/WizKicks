@@ -4,7 +4,7 @@ const app = express();
 require('dotenv').config();
 
 
-// app.use()
+app.use("/api", require("./Routes/authRoutes"));
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
