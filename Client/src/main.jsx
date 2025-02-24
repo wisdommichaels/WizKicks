@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 const App = lazy(() => import('./App.jsx'))
-import store from './store/index';
+import store from './store/index.js';
 import { Toaster } from 'react-hot-toast'
 
 createRoot(document.getElementById('root')).render(
