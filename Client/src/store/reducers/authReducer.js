@@ -12,7 +12,7 @@ export const admin_login = createAsyncThunk(
             });
             console.log(data)
         } catch (error) {
-            console.log(error)
+            console.log(error.response.data)
             // dispatch(admin_login_failure(error.message))
         }
     }
@@ -21,17 +21,29 @@ export const admin_login = createAsyncThunk(
 
 
 export const authReducer = createSlice({
-    name: "auth",
+    name: 'auth',
     initialState: {
-        successMessage: "",
-        errorMessage: "",
+        successMessage: '',
+        errorMessage: '',
         loader: false,
-        userInfo : ""
+        userInfo : ''
     },
     reducers: {
 
     },
-    extraReducers: {
+    extraReducers: (builder) => {
+        builder
+            .addCase(admin_login.pending, (state) => {
+                state.loader = true;
+            })
+            .addCase(admin_login.fulfilled, (state, action) => {
+                state.loader = false;
+                state.userInfo = action.payload;
+            })
+            .addCase(admin_login.rejected, (state, action) => {
+                state.loader = false;
+                state.errorMessage = action.error.message;
+            })
 
     }
 })

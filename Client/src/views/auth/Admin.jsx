@@ -4,13 +4,15 @@
 // Team: WizKicks
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { admin_login } from "../../store/reducers/authReducer";
-
+import {PropagateLoader} from "react-spinners"; 
 // Import icons
 
 const AdminLogin = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
+    const {loader} = useSelector(state => state.auth)
+
 
     const[state, setState] = useState({
         email: "",
@@ -72,8 +74,9 @@ const AdminLogin = () => {
             </div>
 
                     <div className="flex justify-center items-center w-full">
-                    <button className=" bg-[#ff8036]  hover:bg-orange-500  flex justify-center items-center w-[85%] font-bold text-white hover:shadow-blue-300/50 hover:shadow-lg text-white- rounded-xl px-7 py-3 mb-3">
+                    <button disabled ={loader ? true : false } className=" bg-[#ff8036]  hover:bg-orange-500 cursor-pointer  flex justify-center items-center w-[85%] font-bold text-white hover:shadow-blue-300/50 hover:shadow-lg text-white- rounded-xl px-7 py-3 mb-3">
                         Login
+                        {loader && <PropagateLoader color="white" size={10} />}
                     </button>
                     </div>
                     <p className="text-sm text-center"> 

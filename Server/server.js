@@ -2,6 +2,21 @@ const express = require('express');
 
 const app = express();
 require('dotenv').config();
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const { connectdb } = require('./Utils/db');
+
+
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  credentials: true,
+  optionsSuccessStatus: 200
+}))
+
+app.use(bodyParser.json());
+app.use(cookieParser())
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use("/api", require("./Routes/authRoutes"));
@@ -10,6 +25,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 const PORT = process.env.PORT || 5000;
+connectdb();
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
