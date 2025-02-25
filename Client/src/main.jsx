@@ -16,7 +16,7 @@ createRoot(document.getElementById('root')).render(
       toastOptions={{
         position: 'top-right',
         style : {
-          backgroundColor: '#ff9f6b',
+          backgroundColor: '#ff8036',
           color: 'white',
         },
         // autoClose: 5000,

@@ -3,16 +3,17 @@
 // Desc: Register page
 // Team: WizKicks
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { admin_login } from "../../store/reducers/authReducer";
+import { admin_login, clearErrorMessage } from "../../store/reducers/authReducer";
+import toast from 'react-hot-toast';
 
 
 // Import icons
 
 const AdminLogin = () => {
     const dispatch = useDispatch()
-    const {loader} = useSelector(state => state.auth)
+    const {loader, errorMessage } = useSelector(state => state.auth)
 
 
     const[state, setState] = useState({
@@ -34,6 +35,12 @@ const AdminLogin = () => {
         // console.log(state);
     }
 
+    useEffect(() => {
+        if(errorMessage) {
+           toast.error(errorMessage)
+           dispatch(clearErrorMessage())
+        }
+    });
 
     return (
         <div className="min-w-screen min-h-screen bg-[#ffffff] flex items-center justify-center">
@@ -58,13 +65,13 @@ const AdminLogin = () => {
 
                         <label htmlFor="email" className="block text-sm font-medium pl-14">Email</label>
                     <div className="mb-5 flex flex-col w-full justify-center items-center gap-1">
-                        <input onChange={inputHandle} value={state.email} type="email" name="email" placeholder="Email" id="email" required className=" px-3 py-3 w-[85%] rounded-xl outline-[#d7d8d9] bg-[#edeef0] hover:bg-[#d7d8d9] text-gray-700 placeholder-gray-400 " />
+                        <input onChange={inputHandle} value={state.email} type="email" name="email" placeholder="Email" id="email"  className=" px-3 py-3 w-[85%] rounded-xl outline-[#d7d8d9] bg-[#edeef0] hover:bg-[#d7d8d9] text-gray-700 placeholder-gray-400 " />
                         {/* <p className="text-xs text-red-600">Please enter a valid email address.</p> */}
                     </div>
 
                         <label htmlFor="password" className="block text-sm font-medium pl-14">Password</label>
                     <div className="mb-5 flex flex-col w-full justify-center items-center gap-1">
-                        <input onChange={inputHandle} value={state.password} type="password" name="password" placeholder="Password" id="password" required className="w-[85%] px-3 py-3 rounded-xl outline-[#d7d8d9] bg-[#edeef0] hover:bg-[#d7d8d9] text-gray-700 placeholder-gray-400 " />
+                        <input onChange={inputHandle} value={state.password} type="password" name="password" placeholder="Password" id="password"  className="w-[85%] px-3 py-3 rounded-xl outline-[#d7d8d9] bg-[#edeef0] hover:bg-[#d7d8d9] text-gray-700 placeholder-gray-400 " />
                         {/* <p className="text-xs text-red-600">Please enter a valid email address.</p> */}
                     </div>
 
@@ -75,10 +82,13 @@ const AdminLogin = () => {
             </div>
 
                     <div className="flex justify-center items-center w-full">
-                    <button disabled ={loader ? true : false } className=" bg-[#ff8036]  hover:bg-orange-500 cursor-pointer  flex justify-center items-center w-[85%] font-bold text-white hover:shadow-blue-300/50 hover:shadow-lg text-white- rounded-xl px-7 py-3 mb-3">
-                       {
-                            loader ? <PropagateLoader color="#ffffff" size={7} /> : "Login"
-                       }
+                    <button disabled={loader? true : false} className="bg-[#ff8036] hover:bg-orange-500 cursor-pointer flex justify-center items-center w-[85%] font-bold text-white hover:shadow-blue-300/50 hover:shadow-lg rounded-xl px-7 py-3 mb-3">
+                            {loader ? (
+                                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 0116 0"></path>
+                                </svg>
+                            ) : "Login"}
                     </button>
                     </div>
                     <p className="text-sm text-center"> 

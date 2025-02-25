@@ -15,7 +15,7 @@ class authController{
         const admin = await
         adminModel.findOne({email});
         if(!admin){
-          responseReturn(res, 400, {error: "Email not found"})
+          responseReturn(res, 400, {error: "User not found"})
         }
         if(admin){
           const match = await bcrypt.compare(password, admin.password);
