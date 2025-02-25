@@ -2,18 +2,22 @@
 // Team: WizKicks
 // Desc: Register page
 // Team: WizKicks
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { admin_login, clearErrorMessage } from "../../store/reducers/authReducer";
+import { admin_login, clearErrorMessage, clearSuccessMessage } from "../../store/reducers/authReducer";
 import toast from 'react-hot-toast';
 
 
 // Import icons
 
 const AdminLogin = () => {
+
+    const navigate = useNavigate();
+
+
     const dispatch = useDispatch()
-    const {loader, errorMessage } = useSelector(state => state.auth)
+    const {loader, errorMessage, successMessage } = useSelector(state => state.auth)
 
 
     const[state, setState] = useState({
@@ -40,7 +44,12 @@ const AdminLogin = () => {
            toast.error(errorMessage)
            dispatch(clearErrorMessage())
         }
-    });
+        if(successMessage) {
+            toast.success("Login successful")
+            dispatch(clearSuccessMessage())
+            navigate('/')
+        }
+    }, [errorMessage, successMessage, navigate, dispatch]);
 
     return (
         <div className="min-w-screen min-h-screen bg-[#ffffff] flex items-center justify-center">

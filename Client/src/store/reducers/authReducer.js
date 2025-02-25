@@ -33,6 +33,9 @@ export const authReducer = createSlice({
         clearErrorMessage: (state) => {
             state.errorMessage = "";
         },
+        clearSuccessMessage: (state) => {
+            state.successMessage = "";
+        },
         
     },
     extraReducers: (builder) => {
@@ -41,11 +44,10 @@ export const authReducer = createSlice({
                 state.loader = true;
                 state.errorMessage = "";
             })
-            // .addCase(admin_login.fulfilled, (state, action) => {
-            //     state.loader = false;
-            //     state.userInfo = action.payload;
-            //     state.successMessage = "Login successful!";
-            // })
+            .addCase(admin_login.fulfilled, (state, {payload}) => {
+                state.loader = false;
+                state.successMessage = payload.message;
+            })
             .addCase(admin_login.rejected, (state, {payload}) => {
                 state.loader = false;
                 state.errorMessage = payload.error;
@@ -56,4 +58,5 @@ export const authReducer = createSlice({
 
 
 export const { clearErrorMessage } = authReducer.actions;
+export const { clearSuccessMessage } = authReducer.actions;
 export default authReducer.reducer;
