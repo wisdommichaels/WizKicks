@@ -1,5 +1,4 @@
 import { lazy } from 'react';
-import adminModel from '../../../../Server/Models/adminModel';
 const Home = lazy(() => import('../../views/pages/Home'));
 
 export const sellerRoutes = [
@@ -7,7 +6,7 @@ export const sellerRoutes = [
         path: '/',
         element: <Home />,
         ability: ['admin','seller'],
-        exact: true,
+    
     },
     // {
     //     path: '/seller/dashboard',
