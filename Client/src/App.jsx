@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import Router from './router/Router';
 import PublicRoutes from "./router/routes/PublicRoute";
-import { getRoutes } from "./router/routes";
+import { getRoutes } from './router/routes/index';
+
+
 
 function App() {
   const [allRoutes, setAllRoutes] = useState([...PublicRoutes])
@@ -9,9 +11,9 @@ function App() {
 // console.log(allRoutes)
 
 useEffect(() => {
-  // Fetching routes dynamically from an API
   const routes = getRoutes()
-  console.log(routes)
+  // console.log(routes)
+  setAllRoutes([...allRoutes, routes])
 },[])
 
 

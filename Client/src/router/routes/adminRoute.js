@@ -1,11 +1,12 @@
 import { lazy } from 'react';
 const AdminDashboard = lazy(() => import('../../views/admin/AdminDashboard'));
+import React from "react";
 
 
 export const adminRoutes = [
     {
         path: 'admin/dashboard',
-        element: <AdminDashboard/>,
-        ability: 'admin'
+        element: React.createElement(AdminDashboard),
+        role: 'admin'
     }
 ];

@@ -1,10 +1,9 @@
-import {MainLayout} from '../../Layout/MainLayout';
-import {PrivateRoute} from './PrivateRoute';
+import MainLayout from "../../Layout/MainLayout";
+import { privateRoutes } from "./PrivateRoute";
+import React from "react";
 
-export const getRoutes = () => {
-    return{
-            path: "/",
-            element: <MainLayout/>,
-            children: <PrivateRoute/>
-        }
-}
+export const getRoutes = () => ({
+    path: '/',
+    element: React.createElement(MainLayout), // Convert JSX to a function call
+    children: [...privateRoutes]
+});

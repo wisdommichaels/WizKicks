@@ -1,11 +1,12 @@
 import { lazy } from 'react';
-const Home = lazy(() => import('./../../views/pages/Home'));
+const Home = lazy(() => import('./../../views/Home'));
+import React from "react";
 
 export const sellerRoutes = [
     {
         path: '/',
-        element: <Home/>,
+         element: React.createElement(Home),
         ability: ['admin','seller'],
     
-    },
+    }
 ];
