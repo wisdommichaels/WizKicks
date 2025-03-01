@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getNav } from "../Navigation/index";
-import { dashboardicon } from '../assets/image.js';
 
 const SideBar = () => {
-        const pathName = useLocation();
+        const location = useLocation();
+        const pathName = location.pathname;
         const [allNav, setAllNav] = useState([])
         useEffect(() => {
             const navs = getNav('admin')
@@ -27,12 +27,24 @@ const SideBar = () => {
     <div className="px-[16px]">
         <ul>
             {
-                allNav.map((n, i) => (
-                <Link to={n.path} className={`${pathName}`} key={i}>
-                   <img src= {dashboardicon} width="30" height="30" />
+                allNav.map((n, i) =>
+                    <li className="" key={i}>
+                <Link to={n.path} className={`${
+                    pathName === n.path ? `bg-blue-600 shadow-indigo-500/50 text-white duration-500` : 'text-[#030811] font-bold duration-200'} px-[12px] py-[7px] flex justify-start items-center rounded-sm gap-[8px] hover:pl-4 transition-all w-full mb-1`}>
+                   {/* <img src= {n.icon} alt={n.title} width="20" height="20" /> */}
+                    <span className="material-symbols-rounded">{n.icon}</span>
                     <span>{n.title}</span>
                 </Link>
-            ))}
+                </li> )
+            }
+
+        <li> 
+            <button  className="'text-[#030811] font-bold duration-200'} px-[12px] py-[7px] flex justify-start items-center rounded-sm gap-[8px] hover:pl-4 transition-all w-full mb-1">
+                <span className="material-symbols-rounded">logout</span>
+                <span>Logout</span>
+            </button>
+        </li>
+
         </ul>
     </div>
 
