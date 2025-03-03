@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getNav } from "../Navigation/index";
+import PropTypes from "prop-types";
 
-const SideBar = () => {
+const SideBar = ({showSidebar, setShowSidebar}) => {
+
+
         const location = useLocation();
         const pathName = location.pathname;
         const [allNav, setAllNav] = useState([])
@@ -14,10 +17,11 @@ const SideBar = () => {
 
     return (
         <div>
-            <div></div>
+            <div onClick={() => setShowSidebar(!showSidebar)} className={`cursor-pointer flex duration-200 ${!showSidebar ? 'invisible' : 'visible'} w-screen h-screen bg-[#45515b80] top-0 left-0 z-10`}>
 
-    <div className="{`w-[250px] fixed bg-[#e6e7fb] z-50 top-0 h-screen
-    shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] transition-all`}">
+            </div>
+
+    <div className={`w-[250px] fixed bg-[#e6e7fb] z-50 top-0 h-screen shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] transition-all ${showSidebar ? 'left-0' : '-left-[260px] lg:left-0'}`}>
         <div className="h-[70px] flex justify-center items-center">
             <Link to='/' className=" w-[180px] h-[50px]">
                 <img className="w-18" src="/src/assets/REX4-removebg-preview.png" alt="" />
@@ -51,6 +55,11 @@ const SideBar = () => {
     </div>
         </div>
     );
+};
+
+SideBar.propTypes = {
+    showSidebar: PropTypes.bool.isRequired,
+    setShowSidebar: PropTypes.func.isRequired,
 };
 
 export default SideBar;
