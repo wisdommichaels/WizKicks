@@ -17,7 +17,7 @@ const SideBar = ({showSidebar, setShowSidebar}) => {
 
     return (
         <div>
-            <div onClick={() => setShowSidebar(!showSidebar)} className={`cursor-pointer flex duration-200 ${!showSidebar ? 'invisible' : 'visible'} w-screen h-screen bg-[#45515b80] top-0 left-0 z-10`}>
+            <div onClick={() => setShowSidebar(!showSidebar)} className={`cursor-pointer fixed duration-200 ${!showSidebar ? 'invisible' : 'visible'} w-screen h-screen bg-[#45515b80] top-0 left-0 z-10`}>
 
             </div>
 
@@ -34,7 +34,7 @@ const SideBar = ({showSidebar, setShowSidebar}) => {
                 allNav.map((n, i) =>
                     <li className="" key={i}>
                 <Link to={n.path} className={`${
-                    pathName === n.path ? `bg-[#ff8036] hover:bg-[#ff9f6b] shadow-orange-500/50 text-white text-[16px] duration-500` : 'text-[#030811] text-[16px] hover:bg-[#ff9f6b] duration-200'} px-[12px] py-[7px] flex justify-start items-center rounded-sm gap-[8px] hover:pl-4 transition-all w-full mb-1`}>
+                    pathName === n.path ? `bg-[#ff8036] shadow-orange-500/50 text-white text-[16px] duration-500` : 'text-[#030811] text-[16px] hover:bg-[#ff9f6b] duration-200'} px-[12px] py-[7px] flex justify-start items-center rounded-sm gap-[8px] hover:pl-4 transition-all w-full mb-1`}>
                    {/* <img src= {n.icon} alt={n.title} width="20" height="20" /> */}
                     <span className="material-symbols-rounded">{n.icon}</span>
                     <span>{n.title}</span>
