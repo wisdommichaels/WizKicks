@@ -34,7 +34,7 @@ const SideBar = ({showSidebar, setShowSidebar}) => {
                 allNav.map((n, i) =>
                     <li className="" key={i}>
                 <Link to={n.path} className={`${
-                    pathName === n.path ? `bg-[#ff8036] shadow-orange-500/50 text-white text-[16px] duration-500` : 'text-[#030811] text-[16px] hover:bg-[#ff9f6b] duration-200'} px-[12px] py-[7px] flex justify-start items-center rounded-sm gap-[8px] hover:pl-4 transition-all w-full mb-1`}>
+                    pathName === n.path ? `bg-[#ff8036] shadow-orange-500/50 text-white text-[16px] duration-500` : 'text-[#030811] text-[16px] hover:bg-[#ff9f6b] duration-200'} px-[12px] py-[7px] flex justify-start items-center rounded-xl gap-[8px] hover:pl-4 transition-all w-full mb-1`}>
                    {/* <img src= {n.icon} alt={n.title} width="20" height="20" /> */}
                     <span className="material-symbols-rounded">{n.icon}</span>
                     <span>{n.title}</span>
@@ -43,7 +43,7 @@ const SideBar = ({showSidebar, setShowSidebar}) => {
             }
 
         <li> 
-            <button  className="'text-[#030811] hover:bg-[#ff9f6b] text-[16px]  duration-200'} px-[12px] py-[7px] flex justify-start items-center rounded-sm gap-[8px] hover:pl-4 transition-all w-full mb-1">
+            <button  className="'text-[#030811] hover:bg-[#ff9f6b] text-[16px]  duration-200'} px-[12px] py-[7px] flex justify-start items-center rounded-xl gap-[8px] hover:pl-4 transition-all w-full mb-1">
                 <span className="material-symbols-rounded">logout</span>
                 <span>Logout</span>
             </button>
