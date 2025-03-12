@@ -1,4 +1,5 @@
 import Chart from 'react-apexcharts';
+import { Link } from 'react-router-dom';
 
 const AdminDashboard = () => {
 
@@ -30,7 +31,7 @@ const AdminDashboard = () => {
                     enabled: false
                 }
             },
-            colors: ['#F9C851', '#ff8036', '#4483f8'],
+            colors: ['#28B4E9', '#59168A', '#fdbf22'],
             dataLabels: {
                 enabled: false
             },
@@ -98,7 +99,7 @@ const AdminDashboard = () => {
         <div className="px-4 md:pr-[30px] md:pl-[19px] py-2 lg:mt-0"> 
          <div className="lg:hidden flex-col gap-2 ml-2 mb-4">
                 <h1 className='text-xl lg:block font-bold text-black'>Hello!! Wisdom</h1>
-                <p className='text-sm font-normal text-[#92a2ac] leading-3'>Welcome back!</p>
+                <p className='text-sm font-normal text-[#505153] leading-3'>Welcome back!</p>
             </div> 
             <div className="md:hidden w-full mb-4">
                 <div className='flex justify-center items-center shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] pl-3 rounded-xl bg-[#ffffff] border border-[#92a2ac] overflow-hidden'>
@@ -127,17 +128,17 @@ const AdminDashboard = () => {
                 </div>
                 </div>
 
-                <div className="flex justify-between items-center lg:p-5 px-5 py-5 shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] bg-gradient-to-r from-[#ff8036] to-[#ff9f6b] hover:bg-[#f8bcb1] rounded-xl gap-3">
+                <div className="flex justify-between items-center lg:p-5 px-5 py-5 shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] bg-gradient-to-r from-[#7938b2] to-[#b167f3] hover:bg-[#f8bcb1] rounded-xl gap-3">
                     <div className="flex flex-col justify-start items-start ">
                         <h2 className="lg:text-2xl  text-[20px] font-bold text-white">20</h2>
                         <span className="text-md font-normal text-white">Products</span>
                     </div>
-                <div className="w-[40px] h-[40px] rounded-full  bg-[#fe6d3d] flex justify-center items-center text-xl  ">
+                <div className="w-[40px] h-[40px] rounded-full  bg-[#7938b2] flex justify-center items-center text-xl  ">
                     <span className="material-symbols-rounded text-white">add_shopping_cart</span>
                 </div>
                 </div>
 
-                <div className="flex justify-between items-center lg:p-5 px-5 py-5 shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] bg-gradient-to-r from-[#f9c131] to-[#f5e8b3] hover:bg-[#fff2c0] rounded-xl gap-3">
+                <div className="flex justify-between items-center lg:p-5 px-5 py-5 shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] bg-gradient-to-r from-[#edb62b] to-[#f6e49e] hover:bg-[#fff2c0] rounded-xl gap-3">
                     <div className="flex flex-col justify-start items-start">
                         <h2 className="lg:text-2xl text-[20px] font-bold text-white">50</h2>
                         <span className="text-md  font-normal text-white">Sellers</span>
@@ -151,11 +152,69 @@ const AdminDashboard = () => {
 
             <div className="flex flex-wrap mt-7 w-full">
                 <div className="w-full lg:w-7/12 lg:pr-3">
-                <div className="w-full bg-[#ffffff] rounded-lg">
+                <div className="w-full bg-[#ffffff] rounded-xl p-4">
                     <Chart options={state.options} series={state.series} type='bar' height={350} />
                 </div>
 
+
                 </div>
+            <div className="w-full lg:w-5/12 lg:pl-4 mt-6 lg:mt-0">
+                <div className="w-full bg-[#ffffff] rounded-xl p-4 text-[#D0D2D6]">
+                    <div className="flex justify-between items-center">
+                        <h2 className="text-sm font-bold text-black">Recent Seller Message</h2>
+                        <Link className="text-md font-normal text-black">View All</Link>
+                    </div>
+
+                    <div className="flex flex-col gap-2 pt-6">
+                        <ol>
+                            <li className=' flex gap-1 items-center mb-3'>
+                                <div className='flex mb-8 shadow-lg w-9 h-8 p-[6px] bg-[#4483f8]  justify-center items-center rounded-full z-10'>
+                                    <img className='w-full h-full rounded-full shadow-lg' src="/src/assets/icons8-facebook (2).svg" alt="" />
+                                </div>
+                                    <div className="p-2 w-full bg-purple-800   rounded-xl shadow-sm">
+                                    <div className="flex justify-between items-center mb-2 ">
+                                        <Link className='text-sm font-normal text-white'>Admin</Link>
+                                        <time className='mb-1 text-[12px] font-normal sm:order-last sm:mb-0 text-white'>2 day ago</time>
+                                    </div>
+                                    <div className="p-2 text-[11px] text-black font-normal bg-purple-100 rounded-xl border-slate-800">
+                                        How Are You?
+                                    </div>
+                                    </div>
+                            </li>
+                            <li className=' flex gap-1 items-center mb-3'>
+                                <div className='flex mb-8 shadow-lg w-9 h-8 p-[6px] bg-[#4483f8]  justify-center items-center rounded-full z-10'>
+                                    <img className='w-full h-full rounded-full shadow-lg' src="/src/assets/icons8-facebook (2).svg" alt="" />
+                                </div>
+                                    <div className="p-2 w-full bg-purple-800   rounded-xl shadow-sm">
+                                    <div className="flex justify-between items-center mb-2 ">
+                                        <Link className='text-sm font-normal text-white'>Admin</Link>
+                                        <time className='mb-1 text-[12px] font-normal sm:order-last sm:mb-0 text-white'>2 day ago</time>
+                                    </div>
+                                    <div className="p-2 text-[11px] text-black font-normal bg-purple-100 rounded-xl border-slate-800">
+                                        How Are You?
+                                    </div>
+                                    </div>
+                            </li>
+                            <li className=' flex gap-1 items-center mb-3'>
+                                <div className='flex mb-8 shadow-lg w-9 h-8 p-[6px] bg-[#4483f8]  justify-center items-center rounded-full z-10'>
+                                    <img className='w-full h-full rounded-full shadow-lg' src="/src/assets/icons8-facebook (2).svg" alt="" />
+                                </div>
+                                    <div className="p-2 w-full bg-purple-800   rounded-xl shadow-sm">
+                                    <div className="flex justify-between items-center mb-2 ">
+                                        <Link className='text-sm font-normal text-white'>Admin</Link>
+                                        <time className='mb-1 text-[12px] font-normal sm:order-last sm:mb-0 text-white'>2 day ago</time>
+                                    </div>
+                                    <div className="p-2 text-[11px] text-black font-normal bg-purple-100 rounded-xl border-slate-800">
+                                        How Are You?
+                                    </div>
+                                    </div>
+                            </li>
+
+                        </ol>
+                    </div>
+                   
+                </div>
+            </div>
             </div>
 
 
