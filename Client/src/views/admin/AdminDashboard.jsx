@@ -102,7 +102,7 @@ const AdminDashboard = () => {
                 <p className='text-sm font-normal text-[#505153] leading-3'>Welcome back!</p>
             </div> 
             <div className="md:hidden w-full mb-4">
-                <div className='flex justify-center items-center shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] pl-3 rounded-xl bg-[#ffffff] border border-[#92a2ac] overflow-hidden'>
+                <div className='flex justify-center items-center shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] pl-3 rounded-xl bg-[#ffffff] overflow-hidden'>
                     <span className="material-symbols-rounded text-black">search</span>
                     <input className="px-2 w-full  text-black rounded-xl py-2 outline-none " type="text" name='search' placeholder='Search...' />
                 </div>
@@ -118,22 +118,22 @@ const AdminDashboard = () => {
                 </div>
                 </div>
 
-                <div className="flex justify-between items-center lg:p-5 px-5 py-5 shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] bg-gradient-to-r from-[#08b0e8] to-[#94dff8] hover:bg-[#94e1fb] rounded-xl gap-3">
+                <div className="flex justify-between items-center lg:p-5 px-5 py-5 shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] bg-gradient-to-r from-[#7938b2] to-[#b167f3] hover:bg-[#bf84d4] rounded-xl gap-3">
                     <div className="flex flex-col justify-start items-start">
                         <h2 className="lg:text-2xl text-[20px] font-bold text-white">$3434</h2>
                         <span className="text-md  font-normal text-white">Orders</span>
                     </div>
-                <div className="w-[40px] h-[40px] rounded-full bg-[#08b0e8] flex justify-center items-center text-xl  ">
+                <div className="w-[40px] h-[40px] rounded-full bg-[#7938b2] flex justify-center items-center text-xl  ">
                     <span className="material-symbols-rounded text-white">shopping_cart</span>
                 </div>
                 </div>
 
-                <div className="flex justify-between items-center lg:p-5 px-5 py-5 shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] bg-gradient-to-r from-[#7938b2] to-[#b167f3] hover:bg-[#f8bcb1] rounded-xl gap-3">
+                <div className="flex justify-between items-center lg:p-5 px-5 py-5 shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] bg-gradient-to-r  from-[#08b0e8] to-[#94dff8] hover:bg-[#94e1fb]  rounded-xl gap-3">
                     <div className="flex flex-col justify-start items-start ">
                         <h2 className="lg:text-2xl  text-[20px] font-bold text-white">20</h2>
                         <span className="text-md font-normal text-white">Products</span>
                     </div>
-                <div className="w-[40px] h-[40px] rounded-full  bg-[#7938b2] flex justify-center items-center text-xl  ">
+                <div className="w-[40px] h-[40px] rounded-full  bg-[#08b0e8]  flex justify-center items-center text-xl  ">
                     <span className="material-symbols-rounded text-white">add_shopping_cart</span>
                 </div>
                 </div>
@@ -168,7 +168,7 @@ const AdminDashboard = () => {
                     <div className="flex flex-col gap-2 pt-6">
                         <ol>
                             <li className=' flex gap-1 items-center mb-3'>
-                                <div className='flex mb-8 shadow-lg w-9 h-8 p-[6px] bg-[#4483f8]  justify-center items-center rounded-full z-10'>
+                                <div className='flex mb-8 shadow-lg w-9 h-8 p-[6px] bg-purple-200 justify-center items-center rounded-full z-10'>
                                     <img className='w-full h-full rounded-full shadow-lg' src="/src/assets/icons8-facebook (2).svg" alt="" />
                                 </div>
                                     <div className="p-2 w-full bg-purple-800   rounded-xl shadow-sm">
@@ -182,7 +182,7 @@ const AdminDashboard = () => {
                                     </div>
                             </li>
                             <li className=' flex gap-1 items-center mb-3'>
-                                <div className='flex mb-8 shadow-lg w-9 h-8 p-[6px] bg-[#4483f8]  justify-center items-center rounded-full z-10'>
+                                <div className='flex mb-8 shadow-lg w-9 h-8 p-[6px] bg-purple-200  justify-center items-center rounded-full z-10'>
                                     <img className='w-full h-full rounded-full shadow-lg' src="/src/assets/icons8-facebook (2).svg" alt="" />
                                 </div>
                                     <div className="p-2 w-full bg-purple-800   rounded-xl shadow-sm">
@@ -196,7 +196,7 @@ const AdminDashboard = () => {
                                     </div>
                             </li>
                             <li className=' flex gap-1 items-center mb-3'>
-                                <div className='flex mb-8 shadow-lg w-9 h-8 p-[6px] bg-[#4483f8]  justify-center items-center rounded-full z-10'>
+                                <div className='flex mb-8 shadow-lg w-9 h-8 p-[6px] bg-purple-200  justify-center items-center rounded-full z-10'>
                                     <img className='w-full h-full rounded-full shadow-lg' src="/src/assets/icons8-facebook (2).svg" alt="" />
                                 </div>
                                     <div className="p-2 w-full bg-purple-800   rounded-xl shadow-sm">
