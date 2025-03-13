@@ -8,7 +8,7 @@ const MainLayout = () => {
   const [isSidebarHovered, setIsSidebarHovered] = useState(false);
 
   return (
-    <div className="bg-gradient-to-br from-purple-200 to-gray-100 backdrop-blur-2xl w-full min-h-screen">
+    <div className="bg-gradient-to-br from-purple-200 to-gray-100 backdrop-blur-2xl w-full min-h-screen pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
       <Header 
         showSidebar={showSidebar} 
         setShowSidebar={setShowSidebar} 

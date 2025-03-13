@@ -164,7 +164,7 @@ const AdminDashboard = () => {
     {/* Header */}
     <div className="flex justify-between items-center">
       <h2 className="text-sm font-bold text-black">Recent Seller Message</h2>
-      <Link className="text-md font-normal text-black">View All</Link>
+      <Link className="text-md font-normal text-black"><span className="material-symbols-rounded">more_horiz</span></Link>
     </div>
 
     {/* Messages List */}
@@ -203,8 +203,8 @@ const AdminDashboard = () => {
             <div className="w-full p-4 bg-[#ffffff] rounded-xl mt-4 lg:mt-6">
   {/* Header Section */}
   <div className="flex justify-between items-center px-3">
-    <h2 className="font-semibold text-lg text-black ">Recent Orders</h2>
-    <Link className="font-semibold text-sm text-black">View All</Link>
+    <h2 className="font-semibold text-lg text-black pb-3">Recent Orders</h2>
+    <Link className="font-semibold text-sm text-black pb-3"><span className="material-symbols-rounded">more_horiz</span></Link>
   </div>
 
   {/* Responsive Table Wrapper */}
@@ -230,7 +230,7 @@ const AdminDashboard = () => {
             <td className="py-3 px-4 font-medium whitespace-nowrap">Pending</td>
             <td className="py-3 px-4 font-medium whitespace-nowrap">Processing</td>
             <td className="py-3 px-4 font-medium whitespace-nowrap rounded-r-xl">
-              <Link className="bg-purple-100 text-purple-800 p-2 my-1 rounded-xl">View</Link>
+              <Link className="bg-purple-100 text-purple-800 p-2 my-1 rounded-xl hover:bg-purple-200">View</Link>
             </td>
           </tr>
         ))}
@@ -246,7 +246,7 @@ const AdminDashboard = () => {
         <p className="text-sm text-[#9ca2ac]">Price: <span className="font-semibold text-black">$120</span></p>
         <p className="text-sm text-[#9ca2ac]">Payment: <span className="font-semibold text-black">Pending</span></p>
         <p className="text-sm text-[#9ca2ac]">Status: <span className="font-semibold text-black">Processing</span></p>
-        <Link className="block mt-2 text-center bg-purple-800 text-purple-100 p-2 rounded-xl">
+        <Link className="block mt-2 text-center bg-purple-800 text-purple-100 p-2 rounded-xl hover:bg-purple-700">
           View Order
         </Link>
       </div>
