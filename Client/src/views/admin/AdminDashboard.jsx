@@ -11,7 +11,7 @@ const AdminDashboard = () => {
             },
             {
                 name: 'Revenue',
-                data: [50, 60, 70, 75, 80, 75, 90, 100, 110, 120, 115]
+                data: [50, 60, 70, 75, 80, 75, 90, 100, 110, 120, 115, 40]
             },
             {
                 name: 'Seller',
@@ -150,72 +150,109 @@ const AdminDashboard = () => {
             
             </div>
 
-            <div className="flex flex-wrap mt-7 w-full">
-                <div className="w-full lg:w-7/12 lg:pr-3">
-                <div className="w-full bg-[#ffffff] rounded-xl p-4">
+            <div className="flex flex-wrap mt-4 lg:mt-6 w-full">
+                <div className="w-full lg:w-7/12 lg:pr-3 ">
+                <div className="w-full bg-[#ffffff] rounded-xl p-4 overflow-hidden">
                     <Chart options={state.options} series={state.series} type='bar' height={350} />
                 </div>
 
 
                 </div>
-            <div className="w-full lg:w-5/12 lg:pl-4 mt-6 lg:mt-0">
-                <div className="w-full bg-[#ffffff] rounded-xl p-4 text-[#D0D2D6]">
-                    <div className="flex justify-between items-center">
-                        <h2 className="text-sm font-bold text-black">Recent Seller Message</h2>
-                        <Link className="text-md font-normal text-black">View All</Link>
-                    </div>
+                <div className="w-full lg:w-5/12 lg:pl-4 mt-4 lg:mt-0">
+  <div className="w-full bg-[#ffffff] rounded-xl p-3 lg:p-5 lg:pb-8">
+    
+    {/* Header */}
+    <div className="flex justify-between items-center">
+      <h2 className="text-sm font-bold text-black">Recent Seller Message</h2>
+      <Link className="text-md font-normal text-black">View All</Link>
+    </div>
 
-                    <div className="flex flex-col gap-2 pt-6">
-                        <ol>
-                            <li className=' flex gap-1 items-center mb-3'>
-                                <div className='flex mb-8 shadow-lg w-9 h-8 p-[6px] bg-purple-200 justify-center items-center rounded-full z-10'>
-                                    <img className='w-full h-full rounded-full shadow-lg' src="/src/assets/icons8-facebook (2).svg" alt="" />
-                                </div>
-                                    <div className="p-2 w-full bg-purple-800   rounded-xl shadow-sm">
-                                    <div className="flex justify-between items-center mb-2 ">
-                                        <Link className='text-sm font-normal text-white'>Admin</Link>
-                                        <time className='mb-1 text-[12px] font-normal sm:order-last sm:mb-0 text-white'>2 day ago</time>
-                                    </div>
-                                    <div className="p-2 text-[11px] text-black font-normal bg-purple-100 rounded-xl border-slate-800">
-                                        How Are You?
-                                    </div>
-                                    </div>
-                            </li>
-                            <li className=' flex gap-1 items-center mb-3'>
-                                <div className='flex mb-8 shadow-lg w-9 h-8 p-[6px] bg-purple-200  justify-center items-center rounded-full z-10'>
-                                    <img className='w-full h-full rounded-full shadow-lg' src="/src/assets/icons8-facebook (2).svg" alt="" />
-                                </div>
-                                    <div className="p-2 w-full bg-purple-800   rounded-xl shadow-sm">
-                                    <div className="flex justify-between items-center mb-2 ">
-                                        <Link className='text-sm font-normal text-white'>Admin</Link>
-                                        <time className='mb-1 text-[12px] font-normal sm:order-last sm:mb-0 text-white'>2 day ago</time>
-                                    </div>
-                                    <div className="p-2 text-[11px] text-black font-normal bg-purple-100 rounded-xl border-slate-800">
-                                        How Are You?
-                                    </div>
-                                    </div>
-                            </li>
-                            <li className=' flex gap-1 items-center mb-3'>
-                                <div className='flex mb-8 shadow-lg w-9 h-8 p-[6px] bg-purple-200  justify-center items-center rounded-full z-10'>
-                                    <img className='w-full h-full rounded-full shadow-lg' src="/src/assets/icons8-facebook (2).svg" alt="" />
-                                </div>
-                                    <div className="p-2 w-full bg-purple-800   rounded-xl shadow-sm">
-                                    <div className="flex justify-between items-center mb-2 ">
-                                        <Link className='text-sm font-normal text-white'>Admin</Link>
-                                        <time className='mb-1 text-[12px] font-normal sm:order-last sm:mb-0 text-white'>2 day ago</time>
-                                    </div>
-                                    <div className="p-2 text-[11px] text-black font-normal bg-purple-100 rounded-xl border-slate-800">
-                                        How Are You?
-                                    </div>
-                                    </div>
-                            </li>
+    {/* Messages List */}
+    <div className="flex flex-col gap-4 pt-6">
+      <ol>
+        {[1, 2, 3].map((item, index) => (
+          <li key={index} className="flex gap-2 items-center mb-5">
+            
+            {/* Avatar */}
+            <div className="flex shadow-lg w-10 h-10 p-1 bg-purple-200 justify-center items-center rounded-full">
+              <img className="w-full h-full rounded-full shadow-lg" src="/src/assets/icons8-facebook (2).svg" alt="" />
+            </div>
 
-                        </ol>
-                    </div>
-                   
-                </div>
+            {/* Message Bubble */}
+            <div className="p-2 w-full bg-purple-800 rounded-xl shadow-sm">
+              <div className="flex justify-between items-center mb-2">
+                <Link className="text-sm font-normal text-white">Admin</Link>
+                <time className="text-[12px] font-normal text-white">2 days ago</time>
+              </div>
+              
+              {/* Message Text */}
+              <div className="p-2 text-[12px] text-black font-normal bg-purple-100 rounded-xl border-slate-800 break-words">
+                How Are You?
+              </div>
             </div>
+
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</div>
+
             </div>
+
+            <div className="w-full p-4 bg-[#ffffff] rounded-xl mt-4 lg:mt-6">
+  {/* Header Section */}
+  <div className="flex justify-between items-center px-3">
+    <h2 className="font-semibold text-lg text-black ">Recent Orders</h2>
+    <Link className="font-semibold text-sm text-black">View All</Link>
+  </div>
+
+  {/* Responsive Table Wrapper */}
+  <div className="relative overflow-x-auto">
+    <table className="w-full text-sm text-left text-black border-separate border-spacing-y-2 hidden md:table">
+      {/* Table Head */}
+      <thead className="text-sm text-[#9ca2ac] uppercase border-b border-slate-300">
+        <tr>
+          <th scope="col" className="py-2 px-4">Order ID</th>
+          <th scope="col" className="py-2 px-4">Price</th>
+          <th scope="col" className="py-2 px-4">Payment Status</th>
+          <th scope="col" className="py-2 px-4">Order Status</th>
+          <th scope="col" className="py-2 px-4">Active</th>
+        </tr>
+      </thead>
+
+      {/* Table Body */}
+      <tbody className="rounded-xl">
+        {[1, 2, 3, 4, 5, 6].map((item, index) => (
+          <tr key={index} className="border-b bg-[#F9F9F9] border-slate-300 rounded-xl">
+            <td className="py-3 px-4 font-medium whitespace-nowrap rounded-l-xl">#23456</td>
+            <td className="py-3 px-4 font-medium whitespace-nowrap">$120</td>
+            <td className="py-3 px-4 font-medium whitespace-nowrap">Pending</td>
+            <td className="py-3 px-4 font-medium whitespace-nowrap">Processing</td>
+            <td className="py-3 px-4 font-medium whitespace-nowrap rounded-r-xl">
+              <Link className="bg-purple-100 text-purple-800 p-2 my-1 rounded-xl">View</Link>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  {/* ✅ Mobile View: Convert Table to Card List */}
+  <div className="md:hidden space-y-4">
+    {[1, 2, 3, 4,].map((item, index) => (
+      <div key={index} className="bg-[#F9F9F9] p-4 rounded-xl shadow">
+        <p className="text-sm text-[#9ca2ac]">Order ID: <span className="font-semibold text-black">#23456</span></p>
+        <p className="text-sm text-[#9ca2ac]">Price: <span className="font-semibold text-black">$120</span></p>
+        <p className="text-sm text-[#9ca2ac]">Payment: <span className="font-semibold text-black">Pending</span></p>
+        <p className="text-sm text-[#9ca2ac]">Status: <span className="font-semibold text-black">Processing</span></p>
+        <Link className="block mt-2 text-center bg-purple-800 text-purple-100 p-2 rounded-xl">
+          View Order
+        </Link>
+      </div>
+    ))}
+  </div>
+</div>
 
 
            

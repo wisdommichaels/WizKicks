@@ -8,7 +8,7 @@ const Header = ({ showSidebar, setShowSidebar, isSidebarHovered }) => {
         {/* User Profile (Moves to the left ONLY on small screens) */}
         <div className="flex items-center gap-4 lg:order-2">
              {/* Notification Bell (Before Menu on Mobile, Before Profile on lg) */}
-        <div className="relative lg:flex justify-center hidden items-center cursor-pointer">
+        <div className="relative lg:flex justify-center hidden items-center pb-2 cursor-pointer">
           <span className="material-symbols-rounded text-black">notifications</span>
           {/* Notification Badge */}
           {/* <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">3</span> */}
