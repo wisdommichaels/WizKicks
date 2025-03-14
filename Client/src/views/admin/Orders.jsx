@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Pagination from './../Pagination';
 
 
 const Orders = () => {
@@ -8,60 +9,48 @@ const Orders = () => {
     const [parPage, setParPage] = useState(5)
     const [show, setShow] = useState(false)
 
-  return (
-    <div className="px-2 lg:px-7 pt-5">
-    <div className="w-full p-4 bg-white rounded-xl">
-        {/* Top Section */}
-        <div className="flex flex-wrap gap-3 justify-between items-center">
-            <select className="px-4 p-2 text-sm md:text-base focus:border-slate-300 outline-none bg-[#f9f9f9] border border-slate-400 text-black rounded-xl">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-            </select>
-            <div className="flex items-center shadow-lg p-2 rounded-xl bg-white overflow-hidden w-full md:w-auto">
-                <span className="material-symbols-rounded text-black">search</span>
-                <input 
-                    className="px-2 w-full text-black rounded-xl py-2 outline-none text-sm md:text-base" 
-                    type="text" 
-                    name="search" 
-                    placeholder="Search..." 
-                />
-            </div>
-        </div>
-
-        {/* Table Section */}
-        <div className="relative mt-5 overflow-x-auto">
-            <div className="w-full text-sm text-left bg-white">
-               
-                {/* Table Header */}
-                <div className="text-sm text-black uppercase border-b border-slate-700 hidden md:flex">
-                    <div className="py-3 w-1/5 font-bold">Order ID</div>
-                    <div className="py-3 w-1/5 font-bold">Price</div>
-                    <div className="py-3 w-1/5 font-bold">Payment Status</div>
-                    <div className="py-3 w-1/5 font-bold">Order Status</div>
-                    <div className="py-3 w-1/5 font-bold flex justify-between">
-                        <span>Action</span>
-                        <span 
-                            className="material-symbols-rounded cursor-pointer" 
-                            onClick={() => setShow(!show)}
-                        >
-                            {show ? "keyboard_arrow_up" : "keyboard_arrow_down"}
-                        </span>
-                    </div>
+    return (
+        <div className="lg:px-2 px-4 lg:pr-7 lg:pl-4 lg:pt-3">
+        <div className="w-full lg:p-4 lg:bg-white  lg:rounded-xl">
+            {/* Top Section */}
+            <div className="flex flex-wrap gap-3 lg:px-3 justify-between items-center">
+                <select onChange={(e) => setParPage(parseInt(e.target.value))} className="px-4 p-2 text-sm md:text-base focus:border-slate-300 outline-none hover:bg-[#f0efef] bg-[#f9f9f9] border border-slate-400 text-black rounded-xl">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                </select>
+                <div className="lg:flex hidden items-center border px-3 border-slate-300 rounded-xl bg-[#F9F9F9] overflow-hidden lg:w-[20%] w-[75%]">
+                    {/* <span className="material-symbols-rounded text-black hidden">search</span> */}
+                    <input 
+                        className="px-4 w-full text-black rounded-xl py-2 outline-none text-sm md:text-base" 
+                        type="text" 
+                        name="search" 
+                        placeholder="Search..." 
+                    />
                 </div>
-
-                {/* Table Rows (Mobile Friendly) */}
-                <div className="text-black">
-                    {/* Order Row */}
-                    <div className="border-b border-slate-700 p-3 md:flex hidden">
-                        <div className="w-1/5 font-medium">#23456</div>
-                        <div className="w-1/5 font-medium">$650</div>
-                        <div className="w-1/5 font-medium">Pending</div>
-                        <div className="w-1/5 font-medium">Pending</div>
-                        <div className="w-1/5 font-medium flex justify-between">
-                            {/* <Link>
-                                <span className="material-symbols-rounded">more_horiz</span>
-                            </Link> */}
+                <div className="flex lg:hidden items-center border px-3 border-slate-300 rounded-xl bg-[#F9F9F9] overflow-hidden lg:w-[20%] w-[75%]">
+                    <span className="material-symbols-rounded text-black hidden">search</span>
+                    <input 
+                        className="px-4 w-full text-black rounded-xl py-2 outline-none text-sm md:text-base" 
+                        type="text" 
+                        name="search" 
+                        placeholder="Search..." 
+                    />
+                </div>
+            </div>
+    
+            {/* Table Section */}
+            <div className="relative lg:mt-5 overflow-x-auto pb-5">
+                <div className="w-full text-sm text-left lg:bg-white">
+                   
+                    {/* Table Header */}
+                    <div className="text-sm text-black uppercase hidden md:flex px-3">
+                        <div className="py-3 w-1/5 font-bold">Order ID</div>
+                        <div className="py-3 w-1/5 font-bold">Price</div>
+                        <div className="py-3 w-1/5 font-bold">Payment Status</div>
+                        <div className="py-3 w-1/5 font-bold">Order Status</div>
+                        <div className="py-3 w-1/5 font-bold flex justify-between">
+                            <span>Action</span>
                             <span 
                                 className="material-symbols-rounded cursor-pointer" 
                                 onClick={() => setShow(!show)}
@@ -70,60 +59,131 @@ const Orders = () => {
                             </span>
                         </div>
                     </div>
-
-                    {/* Mobile View (Stacks Data) */}
-                    <div className="md:hidden border-b border-slate-700 p-4">
-                        <div className="flex justify-between">
-                            <span className="font-bold">Order ID:</span>
-                            <span>#23456</span>
-                        </div>
-                        <div className="flex justify-between mt-2">
-                            <span className="font-bold">Price:</span>
-                            <span>$650</span>
-                        </div>
-                        <div className="flex justify-between mt-2">
-                            <span className="font-bold">Payment Status:</span>
-                            <span>Pending</span>
-                        </div>
-                        <div className="flex justify-between mt-2">
-                            <span className="font-bold">Order Status:</span>
-                            <span>Pending</span>
-                        </div>
-                        <div className="flex justify-between mt-2">
-                            <Link>
-                                <span className="material-symbols-rounded">more_horiz</span>
-                            </Link>
-                            <span 
-                                className="material-symbols-rounded cursor-pointer" 
-                                onClick={() => setShow(!show)}
-                            >
-                                {show ? "keyboard_arrow_up" : "keyboard_arrow_down"}
-                            </span>
-                        </div>
-                    </div>
-
-                    {/* Hidden Section (Collapsible Content) */}
-                    {show && (
-                        <div className="border-b border-slate-700 bg-purple-200 p-3">
-                            <div className="flex justify-between items-start">
-                                <div className="py-3 w-1/5 font-medium">Order Details</div>
-                                <div className="py-3 w-1/5 font-medium">$650</div>
-                                <div className="py-3 w-1/5 font-medium">More Info</div>
-                                <div className="py-3 w-1/5 font-medium">More Status</div>
-                                <div className="py-3 w-1/5 font-medium">
-                                    <Link>
-                                        <span className="material-symbols-rounded">more_horiz</span>
-                                    </Link>
-                                </div>
+    
+                    {/* Table Rows (Mobile Friendly) */}
+                    <div className="text-black mt-3">
+                        {/* Order Row */}
+                        <div className="bg-[#F9F9F9] py-2 pl-5 pr-3 md:flex hidden rounded-xl justify-center items-center">
+                            <div className="w-1/5 font-medium">#23456</div>
+                            <div className="w-1/5 font-medium">$650</div>
+                            <div className="w-1/5 font-medium">Pending</div>
+                            <div className="w-1/5 font-medium">Pending</div>
+                            <div className="w-1/5 font-medium flex justify-between">
+                                <Link className="bg-purple-200 py-2 px-3 text-purple-800 rounded-xl hover:bg-purple-300">View</Link>
+                                <span 
+                                    className="material-symbols-rounded cursor-pointer" 
+                                    onClick={() => setShow(!show)}
+                                >
+                                    {show ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+                                </span>
                             </div>
                         </div>
-                    )}
+    
+                        {/* Mobile View (Stacks Data) */}
+                        <div className="md:hidden p-4 rounded-xl border-b-1 border-slate-800  bg-[#ffffff]">
+                            <div className="flex justify-between">
+                                <span className="font-bold">Order ID:</span>
+                                <span className="font-bold">#23456</span>
+                            </div>
+                            <div className="flex justify-between mt-2">
+                                <span className="font-bold">Price:</span>
+                                <span>$650</span>
+                            </div>
+                            <div className="flex justify-between mt-2">
+                                <span className="font-bold">Payment Status:</span>
+                                <span>Pending</span>
+                            </div>
+                            <div className="flex justify-between mt-2">
+                                <span className="font-bold">Order Status:</span>
+                                <span>Pending</span>
+                            </div>
+                            <div className="flex justify-between mt-5">
+                            <Link className="bg-purple-800 py-2 px-3 text-white rounded-xl hover:bg-purple-700">View Orders</Link> 
+                                <span 
+                                    className="material-symbols-rounded cursor-pointer" 
+                                    onClick={() => setShow(!show)}
+                                >
+                                    {show ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+                                </span>
+                            </div>
+                        </div>
+    
+                        {/* Hidden Section (Collapsible Content) */}
+                     
+                            <div className={`transition-all duration-300 overflow-hidden ${show ? "block" : "hidden"}`}>
+                                <div className="hidden lg:flex justify-between items-start py-2 pl-5  pr-3 ">
+                                    <div className="py-2 w-1/5 font-medium">#23456</div>
+                                    <div className="py-2 w-1/5 font-medium">$650</div>
+                                    <div className="py-2 w-1/5 font-medium">Pending</div>
+                                    <div className="py-2 w-1/5 font-medium">Pending</div>
+                                    <div className="py-2 w-1/5 font-medium">
+                                        
+                                    </div>
+                                </div>
+    
+                                <div className="hidden lg:flex justify-between items-start bg-[#F9F9F9] rounded-xl  pr-3  py-2 pl-5">
+                                    <div className="py-2 w-1/5 font-medium">#23456</div>
+                                    <div className="py-2 w-1/5 font-medium ">$650</div>
+                                    <div className="py-2 w-1/5 font-medium">Pending</div>
+                                    <div className="py-2 w-1/5 font-medium">Pending</div>
+                                    <div className="py-2 w-1/5 font-medium">
+                                        
+                                    </div>
+                                </div>
+                                <div className="md:hidden bg-[#ffffff] rounded-xl p-4 border-b-1 border-slate-700 ">
+                            <div className="flex justify-between">
+                                <span className="font-bold">Order ID:</span>
+                                <span className="font-bold">#23456</span>
+                            </div>
+                            <div className="flex justify-between mt-2">
+                                <span className="font-bold">Price:</span>
+                                <span>$650</span>
+                            </div>
+                            <div className="flex justify-between mt-2">
+                                <span className="font-bold">Payment Status:</span>
+                                <span>Pending</span>
+                            </div>
+                            <div className="flex justify-between mt-2">
+                                <span className="font-bold">Order Status:</span>
+                                <span>Pending</span>
+                            </div>
+                        </div>
+                                <div className="md:hidden bg-[#ffffff] rounded-xl p-4 border-t-1 border-slate-700 ">
+                            <div className="flex justify-between">
+                                <span className="font-bold">Order ID:</span>
+                                <span className="font-bold">#23456</span>
+                            </div>
+                            <div className="flex justify-between mt-2">
+                                <span className="font-bold">Price:</span>
+                                <span>$650</span>
+                            </div>
+                            <div className="flex justify-between mt-2">
+                                <span className="font-bold">Payment Status:</span>
+                                <span>Pending</span>
+                            </div>
+                            <div className="flex justify-between mt-2">
+                                <span className="font-bold">Order Status:</span>
+                                <span>Pending</span>
+                            </div>
+                        </div>
+                            </div>
+                      
+                    </div>
+
                 </div>
+                <Pagination
+                    pageNumber={currentPage}
+                    setPageNumber={setCurrentPage}
+                    totalItem ={50}
+                    parPage={parPage}
+                    showItem={3}
+
+                />
             </div>
+
         </div>
     </div>
-</div>
-  )
+      )
 }
 
 export default Orders
