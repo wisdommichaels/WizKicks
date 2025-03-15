@@ -36,7 +36,7 @@ const SideBar = ({ showSidebar, setShowSidebar, setIsSidebarHovered }) => {
         {/* Logo */}
         <div className="h-[70px] flex justify-center items-center">
           <Link to="/" className="w-10 h-10">
-            <img className="w-10" src="/src/assets/REX4-removebg-preview.png" alt="" />
+            <img className="w-10" src="http://localhost:5173/public/assets/logo.png" alt="" />
           </Link>
         </div>
 
@@ -48,7 +48,7 @@ const SideBar = ({ showSidebar, setShowSidebar, setIsSidebarHovered }) => {
                 <Link
                   to={n.path}
                   className={`flex items-center px-3 py-2 rounded-xl transition-all w-full gap-5 
-                    ${pathName === n.path ? "bg-purple-500 shadow-lg text-white" : "text-white hover:bg-purple-500 hover:mt-2"}`}
+                    ${pathName === n.path ? "bg-purple-500 shadow-lg text-white" : "text-white hover:bg-purple-500 hover:my-2"}`}
                 >
                   <span className="material-symbols-rounded text-xl">{n.icon}</span>
                   {/* Show title only on large screens and when hovered */}

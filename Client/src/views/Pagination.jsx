@@ -30,13 +30,19 @@ const Pagination = ({pageNumber, setPageNumber, totalItem, parPage, showItem}) =
   }
 
   return (
-    <ul className="flex gap-3 justify-end py-2">
+    <ul className="flex gap-3">
       {
-        pageNumber > 1 && <li onClick={() => setPageNumber(pageNumber-1)} className="cursor-pointer w-[33px] h-[33px] flex justify-center items-center pl-2  text-white hover:bg-purple-700 rounded-full bg-purple-900 shadow-md">
+        pageNumber > 1 && <li onClick={() => setPageNumber(pageNumber - 1)} className="cursor-pointer w-[33px] h-[33px] flex justify-center items-center pl-2  text-white hover:bg-purple-200 rounded-full bg-purple-300 shadow-md">
           <span className="material-symbols-rounded">arrow_back_ios</span>
           </li>
-      }{
+      }
+      {
         createButton()
+      }
+      {
+        pageNumber < totalPage && <li onClick={() => setPageNumber(pageNumber + 1)} className="cursor-pointer w-[33px] h-[33px] flex justify-center items-center pl-2  text-white hover:bg-purple-200 rounded-full bg-purple-300 shadow-md">
+          <span className="material-symbols-rounded pr-1">arrow_forward_ios</span>
+          </li>
       }
     </ul>
   )
