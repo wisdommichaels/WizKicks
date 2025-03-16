@@ -86,7 +86,7 @@ const AdminDashboard = () => {
   }, [chartType]);
 
   return (
-    <div className="px-4 md:pr-[30px] md:pl-[19px] py-2 lg:mt-0">
+    <div className="px-4 md:pr-[30px] md:pl-[19px] py-2 lg-py-0 lg:mt-0">
       <div className="lg:hidden flex-col gap-2 ml-2 mb-4">
         <h1 className="text-xl lg:block font-bold text-black">
           Hello!! Wisdom
@@ -106,6 +106,9 @@ const AdminDashboard = () => {
           />
         </div>
       </div>
+        <div className="w-full hidden lg:flex justify-between items-center text-purple-900 mb-5 ">
+          <h1 className="text-xl font-bold">Admin Dashboard</h1>
+        </div>
       <div className="w-full grid grid-cols-2 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5 gap-2">
         <div className="flex justify-between items-center lg:p-5 px-5 py-5 bg-gradient-to-r from-[#4483f8] to-[#b8d4fe] shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] hover:bg-[#b0cffe] rounded-xl gap-3">
           <div className="flex flex-col justify-start items-start">

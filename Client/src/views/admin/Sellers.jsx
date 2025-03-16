@@ -1,36 +1,18 @@
 import { useState } from "react";
-import Pagination from "./../Pagination";
 import { Link } from "react-router-dom";
+import Pagination from "../Pagination";
 
 
-const Categories = () => {
-  const [parPage, setParPage] = useState(5);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [show, setShow] = useState(false);
-    // const [searchValue, setSearchValue] = useState('');
+const Sellers = () => {
 
+    const [parPage, setParPage] = useState(5);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [show, setShow] = useState(false);
+       
   return (
-    <div className="px-4 lg:px-4">
-       <div className="w-full hidden lg:flex justify-between items-center text-purple-900 mb-2 ">
-          <h1 className="text-xl font-bold">Category</h1>
-        </div>
-      
-      <div className="flex lg:hidden justify-between item-center mb-6 p-4 ">
-        <h1 className="text-purple-900 text-xl font-bold ">Category</h1>
-        <button
-        className="lg:hidden fixed right-5 animate-bounce bg-purple-800 text-white p-4 rounded-full shadow-xl  transition-all duration-300 hover:bg-purple-900"
-        onClick={() => setShow(true)}
-      >
-        <span className="material-symbols-rounded p-1">add</span>
-      </button>
-      </div>
-      
-      
-
-      <div className="flex flex-wrap w-full ">
-        <div className="w-full lg:w-7/12">
-          <div className="w-full lg:bg-[#ffffff] rounded-xl lg:p-4  lg:px-4 overflow-hidden">
-            <div className="flex flex-wrap gap-3 lg:px-3 justify-between items-center">
+    <div className="px-2 lg:px-7 pt-5">
+         <div className="w-full lg:bg-[#ffffff] rounded-xl lg:p-4  lg:px-4 overflow-hidden">
+         <div className="flex flex-wrap gap-3 lg:px-3 justify-between items-center">
               <select
                 onChange={(e) => setParPage(parseInt(e.target.value))}
                 className="px-4 p-2 text-sm md:text-base focus:border-slate-300 outline-none hover:bg-[#f0efef] bg-[#f5f7f9] border border-slate-400 text-black rounded-xl"
@@ -60,12 +42,11 @@ const Categories = () => {
                 />
               </div>
             </div>
-
             <div className="relative overflow-x-auto">
               <table className="w-full text-sm text-left text-black border-separate border-spacing-y-2 hidden md:table">
                 {/* Table Head */}
                 <thead className="text-sm text-[#9ca2ac] uppercase border-b border-slate-300">
-                  <tr>
+                <tr>
                     <th scope="col" className="py-2 px-4">
                       No
                     </th>
@@ -76,7 +57,22 @@ const Categories = () => {
                       Name
                     </th>
                     <th scope="col" className="py-2 px-4">
-                      Action
+                      Shop Name
+                    </th>
+                    <th scope="col" className="py-2 px-4">
+                      Payment Status
+                    </th>
+                    <th scope="col" className="py-2 px-4">
+                     Email
+                    </th>
+                    <th scope="col" className="py-2 px-4">
+                     Division
+                    </th>
+                    <th scope="col" className="py-2 px-4">
+                     District
+                    </th>
+                    <th scope="col" className="py-2 px-4">
+                     Action
                     </th>
                   </tr>
                 </thead>
@@ -118,58 +114,56 @@ const Categories = () => {
               </table>
             </div>
 
-            {/* ✅ Mobile View: Convert Table to Card List */}
-            <div className="md:hidden space-y-4 my-4">
-  {[1, 2, 3, 4].map((item, index) => (
-    <div key={index} className=" bg-white p-5 rounded-xl shadow flex items-center gap-4">
-      {/* Image on the Left */}
-      <div className="flex w-[30%] justify-center items-center">
-        <img
-          className="w-[80px] border border-slate-200 h-[80px] rounded-lg object-cover"
-          src={`http://localhost:5173/Public/assets/category/${item}.jpg`}
-          alt={`Category ${item}`}
-        />
-      </div>
+             {/* ✅ Mobile View: Convert Table to Card List */}
+                        <div className="md:hidden space-y-4 my-4">
+              {[1, 2, 3, 4].map((item, index) => (
+                <div key={index} className=" bg-white p-5 rounded-xl shadow flex items-center gap-4">
+                  {/* Image on the Left */}
+                  <div className="flex w-[30%] justify-center items-center">
+                    <img
+                      className="w-[80px] border border-slate-200 h-[80px] rounded-lg object-cover"
+                      src={`http://localhost:5173/Public/assets/category/${item}.jpg`}
+                      alt={`Category ${item}`}
+                    />
+                  </div>
+            
+                  {/* Details on the Right */}
+                  <div className="flex-1">
+                    <p className="text-sm text-[#9ca2ac]">
+                      No: <span className="font-semibold text-black">{item}</span>
+                    </p>
+                    <p className="text-sm text-[#9ca2ac]">
+                      Name: <span className="font-semibold text-black">jordan</span>
+                    </p>
+            
+                    {/* Buttons - Edit & Delete */}
+                    <div className="flex gap-2 mt-2 justify-center items-center">
+                      {/* Edit Button */}
+                      <button className="bg-purple-800 w-[50%] text-white p-2 rounded-xl">
+                        <span className="material-symbols-rounded">edit_square</span>
+                      </button>
+            
+                      {/* Delete Button */}
+                      <button className=" border-2 border-purple-900 w-[50%] text-purple-900 p-2 rounded-xl">
+                        <span className="material-symbols-rounded">delete</span>
+                      </button>
+                    </div>
+            
+                  </div>
+                </div>
+              ))}
+                      </div>
+                  <div className="flex lg:justify-end justify-center mt-5 bottom-4 right-4 mb-3 lg:mb-0">
+                          <Pagination
+                            pageNumber={currentPage}
+                            setPageNumber={setCurrentPage}
+                            totalItem ={50}
+                            parPage={parPage}
+                            showItem={3}
+                            />
+                    </div>
 
-      {/* Details on the Right */}
-      <div className="flex-1">
-        <p className="text-sm text-[#9ca2ac]">
-          No: <span className="font-semibold text-black">{item}</span>
-        </p>
-        <p className="text-sm text-[#9ca2ac]">
-          Name: <span className="font-semibold text-black">jordan</span>
-        </p>
-
-        {/* Buttons - Edit & Delete */}
-        <div className="flex gap-2 mt-2 justify-center items-center">
-          {/* Edit Button */}
-          <button className="bg-purple-800 w-[50%] text-white p-2 rounded-xl">
-            <span className="material-symbols-rounded">edit_square</span>
-          </button>
-
-          {/* Delete Button */}
-          <button className=" border-2 border-purple-900 w-[50%] text-purple-900 p-2 rounded-xl">
-            <span className="material-symbols-rounded">delete</span>
-          </button>
-        </div>
-
-      </div>
-    </div>
-  ))}
-          </div>
-      <div className="flex lg:justify-end justify-center mt-5 bottom-4 right-4 mb-3 lg:mb-0">
-              <Pagination
-                pageNumber={currentPage}
-                setPageNumber={setCurrentPage}
-                totalItem ={50}
-                parPage={parPage}
-                showItem={3}
-                />
-        </div>
-          </div>
-        </div>
-        
-        {show && (
+                    {show && (
   <div
   className={`fixed lg:hidden inset-0 bg-purple-200/30 backdrop-blur-[1px] flex items-end justify-center z-[9999] transition-opacity duration-500 ${
     show ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -215,45 +209,9 @@ const Categories = () => {
     </div>
   </div>
 )}
-
-        <div className={`w-[320px] lg:w-5/12 lg:relative hidden lg:block lg:right-0 transalate-x-100 fixed ${show ? "right-0" : "-right-[350px]"} z-[9999] top-0 transition-all duration-500`}>
-          <div className="w-full pl-5">
-            <div className="bg-[#ffffff] h-screen lg:h-auto px-3 py-2 rounded-xl text-black">
-              <h1 className="text-black  font-semibold text-[16px] sm:text-xl mb-2 pt-2 w-full text-center">Add Category</h1>
-              <form>
-                <div className="flex flex-col gap-2 w-full mb-3">
-                  <label className="text-black " htmlFor="name">Category Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Enter Category Name"
-                    className="px-4 w-full text-black rounded-xl bg-[#f5f7f9] border-slate-300 border py-2 outline-none text-sm md:text-base"
-                  />
-                </div>
-                <div>
-                  <label className="flex justify-center items-center flex-col bg-[#f5f7f9] border border-dashed h-[238px] w-full border-slate-400 cursor-pointer" htmlFor="image">
-                    <span className="material-symbols-rounded text-4xl text-black">add_a_photo</span>
-                    <span className="text-black">Add Image</span>
-                  </label>
-                  <input
-                    type="file"
-                    id="image"
-                    name="image"
-                    className="hidden"
-                  />
-
-                  <div className="">
-                    <button className="bg-purple-900 hover:bg-purple-800 cursor-pointer w-full hover:shadow-purple-500 text-white rounded-xl px-7 py-2 my-2 text-center"> Add Category</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+         </div>
     </div>
-  );
-};
+  )
+}
 
-export default Categories;
+export default Sellers

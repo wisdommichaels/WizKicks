@@ -10,7 +10,10 @@ const Orders = () => {
     const [show, setShow] = useState(false)
 
     return (
-        <div className="lg:px-2 px-4 lg:pr-7 lg:pl-4 lg:pt-3">
+        <div className="lg:px-2 px-4 lg:pr-7 lg:pl-4">
+            <div className="w-full hidden lg:flex justify-between items-center text-purple-900 mb-2 ">
+          <h1 className="text-xl font-bold">Oders</h1>
+        </div>
         <div className="w-full lg:p-4 lg:pt-6 lg:bg-white  lg:rounded-xl">
             {/* Top Section */}
             <div className="flex flex-wrap gap-3 lg:px-3 justify-between items-center">
