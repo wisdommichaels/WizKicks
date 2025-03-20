@@ -10,7 +10,7 @@ const Categories = () => {
     // const [searchValue, setSearchValue] = useState('');
 
   return (
-    <div className="px-4 lg:px-4">
+    <div className="lg:px-4 lg:pl-4 lg:pr-6">
        <div className="w-full hidden lg:flex justify-between items-center text-purple-900 mb-2 ">
           <h1 className="text-xl font-bold">Category</h1>
         </div>
@@ -30,7 +30,7 @@ const Categories = () => {
       <div className="flex flex-wrap w-full ">
         <div className="w-full lg:w-7/12">
           <div className="w-full lg:bg-[#ffffff] rounded-xl lg:p-4  lg:px-4 overflow-hidden">
-            <div className="flex flex-wrap gap-3 lg:px-3 justify-between items-center">
+            <div className="flex flex-wrap gap-3 lg:px-3 px-4 justify-between items-center">
               <select
                 onChange={(e) => setParPage(parseInt(e.target.value))}
                 className="px-4 p-2 text-sm md:text-base focus:border-slate-300 outline-none hover:bg-[#f0efef] bg-[#f5f7f9] border border-slate-400 text-black rounded-xl"
@@ -86,7 +86,7 @@ const Categories = () => {
                   {[1, 2, 3, 4].map((item, index) => (
                     <tr
                       key={index}
-                      className="border-b bg-[#F9F9F9] border-slate-300"
+                      className="border-b bg-[#f6f7f9] border-slate-300"
                     >
                       <td className=" py-1 px-4 font-medium whitespace-nowrap rounded-l-xl">
                         {item}
@@ -119,9 +119,9 @@ const Categories = () => {
             </div>
 
             {/* ✅ Mobile View: Convert Table to Card List */}
-            <div className="md:hidden space-y-4 my-4">
+            <div className="md:hidden space-y-4 my-4 bg-white p-4 rounded-t-xl">
   {[1, 2, 3, 4].map((item, index) => (
-    <div key={index} className=" bg-white p-5 rounded-xl shadow flex items-center gap-4">
+    <div key={index} className="  p-5 rounded-xl shadow flex items-center gap-4  bg-gray-100">
       {/* Image on the Left */}
       <div className="flex w-[30%] justify-center items-center">
         <img
@@ -132,7 +132,7 @@ const Categories = () => {
       </div>
 
       {/* Details on the Right */}
-      <div className="flex-1">
+      <div className="flex-1 ">
         <p className="text-sm text-[#9ca2ac]">
           No: <span className="font-semibold text-black">{item}</span>
         </p>

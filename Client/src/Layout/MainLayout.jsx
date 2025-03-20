@@ -24,7 +24,7 @@ const MainLayout = () => {
       {/* Adjust Outlet margin based on sidebar hover */}
       <div 
         className={`pt-[95px] transition-all duration-300 
-          ${isSidebarHovered ? "md:ml-64" : "md:ml-19"}`}
+          ${isSidebarHovered ? "md:ml-65" : "md:ml-19"}`}
       >
         <Outlet />
       </div>

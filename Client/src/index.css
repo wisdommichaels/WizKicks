@@ -1,1 +1,9 @@
 @import "tailwindcss";
+.List::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit (Chrome, Safari) */
+  }
+  
+  .List {
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  }
