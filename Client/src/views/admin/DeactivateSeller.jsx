@@ -1,15 +1,19 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Pagination from "../Pagination";
 
 
-const Sellers = () => {
+const DeactivateSeller = () => {
 
     const [parPage, setParPage] = useState(5);
     const [currentPage, setCurrentPage] = useState(1);
        
   return (
     <div className="lg:px-4 lg:pl-4 lg:pr-8">
+        <div className="w-full hidden lg:flex justify-between items-center text-purple-900 mb-2 ">
+          <h1 className="text-xl font-bold">Deactivate Seller</h1>
+        </div>
          <div className="w-full lg:bg-[#ffffff] rounded-xl lg:p-4  lg:px-4 overflow-hidden">
          <div className="flex flex-wrap gap-3 lg:px-3 justify-between items-center px-4">
               <select
@@ -56,19 +60,13 @@ const Sellers = () => {
                       Name
                     </th>
                     <th scope="col" className="py-2 px-4">
-                      Shop Name
+                     Email
                     </th>
                     <th scope="col" className="py-2 px-4">
                       Payment Status
                     </th>
                     <th scope="col" className="py-2 px-4">
-                     Email
-                    </th>
-                    <th scope="col" className="py-2 px-4">
-                     Division
-                    </th>
-                    <th scope="col" className="py-2 px-4">
-                     District
+                     Status
                     </th>
                     <th scope="col" className="py-2 px-4">
                      Action
@@ -86,7 +84,7 @@ const Sellers = () => {
                       <td className=" py-1 px-4 font-medium whitespace-nowrap rounded-l-xl">
                         {item}
                       </td>
-                      <td className=" py-1 px-4 font-medium whitespace-nowrap">
+                      <td className=" py-1 px-4 font-medium whitespace-nowrap flex justify-center items-center">
                         <img
                           className="w-[50px] h-[50px] rounded-lg object-cover"
                           src={`http://localhost:5173/Public/assets/category/${item}.jpg`}
@@ -97,19 +95,13 @@ const Sellers = () => {
                         Wisdom
                       </td>
                       <td className="py-1 px-4 font-medium whitespace-nowrap">
-                       Easy Shop
+                       wisdom@gmail.com
                       </td>
                       <td className="py-1 px-4 font-medium whitespace-nowrap">
                         <span>Pendding</span>
                       </td>
                       <td className="py-1 px-4 font-medium whitespace-nowrap">
-                       wisdom@gmail.com
-                      </td>
-                      <td className="py-1 px-4 font-medium whitespace-nowrap">
-                        Wuse
-                      </td>
-                      <td className="py-1 px-4 font-medium whitespace-nowrap">
-                        Abuja
+                        <span>Deactivate</span>
                       </td>
                       <td className="py-1  gap-5  font-medium whitespace-nowrap rounded-r-xl">
                         <div className="flex justify-center items-center gap-5">
@@ -136,8 +128,8 @@ const Sellers = () => {
                 />
                 <div>
                   <h2 className="text-black font-medium">Wisdom</h2>
-                  <p className="text-sm text-gray-600"><span>Store:</span> Easy Shop</p>
-                  <p className="text-sm text-gray-600"><span>Status:</span> Pending</p>
+                  <p className="text-sm text-gray-600"><span>Payment Status:</span> Pending</p>
+                  <p className="text-sm text-gray-600"><span>Status:</span> Deactivate</p>
                 </div>
               </div>
               <div className="mt-3 flex justify-between items-center">
@@ -177,4 +169,4 @@ const Sellers = () => {
   )
 }
 
-export default Sellers
+export default DeactivateSeller

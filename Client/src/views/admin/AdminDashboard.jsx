@@ -248,7 +248,7 @@ const AdminDashboard = () => {
 
         {/* Responsive Table Wrapper */}
         <div className="relative overflow-x-auto">
-          <table className="w-full text-sm text-left text-black border-separate border-spacing-y-2 hidden md:table">
+          <table className="w-full text-sm text-center text-black border-separate border-spacing-y-2 hidden md:table">
             {/* Table Head */}
             <thead className="text-sm text-[#9ca2ac] uppercase border-b border-slate-300">
               <tr>

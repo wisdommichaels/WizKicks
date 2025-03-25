@@ -1,15 +1,19 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Pagination from "../Pagination";
 
 
-const Sellers = () => {
+const SellerRequest = () => {
 
     const [parPage, setParPage] = useState(5);
     const [currentPage, setCurrentPage] = useState(1);
        
   return (
     <div className="lg:px-4 lg:pl-4 lg:pr-8">
+        <div className="w-full hidden lg:flex justify-between items-center text-purple-900 mb-2 ">
+          <h1 className="text-xl font-bold">Seller Request</h1>
+        </div>
          <div className="w-full lg:bg-[#ffffff] rounded-xl lg:p-4  lg:px-4 overflow-hidden">
          <div className="flex flex-wrap gap-3 lg:px-3 justify-between items-center px-4">
               <select
@@ -50,25 +54,16 @@ const Sellers = () => {
                       No
                     </th>
                     <th scope="col" className="py-2 px-4">
-                      Image
-                    </th>
-                    <th scope="col" className="py-2 px-4">
                       Name
-                    </th>
-                    <th scope="col" className="py-2 px-4">
-                      Shop Name
-                    </th>
-                    <th scope="col" className="py-2 px-4">
-                      Payment Status
                     </th>
                     <th scope="col" className="py-2 px-4">
                      Email
                     </th>
                     <th scope="col" className="py-2 px-4">
-                     Division
+                      Payment Status
                     </th>
                     <th scope="col" className="py-2 px-4">
-                     District
+                     Status
                     </th>
                     <th scope="col" className="py-2 px-4">
                      Action
@@ -86,34 +81,21 @@ const Sellers = () => {
                       <td className=" py-1 px-4 font-medium whitespace-nowrap rounded-l-xl">
                         {item}
                       </td>
-                      <td className=" py-1 px-4 font-medium whitespace-nowrap">
-                        <img
-                          className="w-[50px] h-[50px] rounded-lg object-cover"
-                          src={`http://localhost:5173/Public/assets/category/${item}.jpg`}
-                          alt=""
-                        />
-                      </td>
                       <td className="py-1 px-4 font-medium whitespace-nowrap">
                         Wisdom
-                      </td>
-                      <td className="py-1 px-4 font-medium whitespace-nowrap">
-                       Easy Shop
-                      </td>
-                      <td className="py-1 px-4 font-medium whitespace-nowrap">
-                        <span>Pendding</span>
                       </td>
                       <td className="py-1 px-4 font-medium whitespace-nowrap">
                        wisdom@gmail.com
                       </td>
                       <td className="py-1 px-4 font-medium whitespace-nowrap">
-                        Wuse
+                        <span>Inactive</span>
                       </td>
                       <td className="py-1 px-4 font-medium whitespace-nowrap">
-                        Abuja
+                        <span>Pending</span>
                       </td>
                       <td className="py-1  gap-5  font-medium whitespace-nowrap rounded-r-xl">
                         <div className="flex justify-center items-center gap-5">
-                        <Link className="bg-purple-100 flex justify-center w-fit items-center text-purple-800 px-3 py-2 my-1 rounded-xl hover:bg-purple-200">
+                        <Link to='/admin/dashboard/seller/details/2' className="bg-purple-100 flex justify-center w-fit items-center text-purple-800 px-3 py-2 my-1 rounded-xl hover:bg-purple-200">
                         <span className="material-symbols-rounded">visibility</span>
                         </Link>
                         </div>
@@ -129,20 +111,15 @@ const Sellers = () => {
           {[1, 2, 3, 4].map((item, index) => (
             <div key={index} className="bg-[#f6f7f9] p-4 rounded-xl shadow-sm">
               <div className="flex items-center gap-4">
-                <img
-                  className="w-18 h-18 rounded-lg object-cover"
-                  src={`http://localhost:5173/Public/assets/category/${item}.jpg`}
-                  alt=""
-                />
                 <div>
                   <h2 className="text-black font-medium">Wisdom</h2>
-                  <p className="text-sm text-gray-600"><span>Store:</span> Easy Shop</p>
+                  <p className="text-sm text-gray-600"><span>Payment Status:</span> Inactive</p>
                   <p className="text-sm text-gray-600"><span>Status:</span> Pending</p>
                 </div>
               </div>
               <div className="mt-3 flex justify-between items-center">
                 <p className="text-sm text-gray-600"><span>Email:</span> wisdom@gmail.com</p>
-                <Link
+                <Link to='/admin/dashboard/seller/details/2' 
                   className="bg-purple-200 flex items-center text-purple-800 px-3 py-2 rounded-xl hover:bg-purple-200"
                 >
                   View
@@ -177,4 +154,4 @@ const Sellers = () => {
   )
 }
 
-export default Sellers
+export default SellerRequest

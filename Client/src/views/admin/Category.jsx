@@ -17,12 +17,12 @@ const Categories = () => {
       
       <div className="flex lg:hidden justify-between item-center mb-6 p-4 ">
         <h1 className="text-purple-900 text-xl font-bold ">Category</h1>
-        <button
+        {/* <button
         className="lg:hidden fixed right-5 animate-bounce bg-purple-800 text-white p-4 rounded-full shadow-xl  transition-all duration-300 hover:bg-purple-900"
         onClick={() => setShow(true)}
       >
         <span className="material-symbols-rounded p-1">add</span>
-      </button>
+      </button> */}
       </div>
       
       
@@ -62,7 +62,7 @@ const Categories = () => {
             </div>
 
             <div className="relative overflow-x-auto">
-              <table className="w-full text-sm text-left text-black border-separate border-spacing-y-2 hidden md:table">
+              <table className="w-full text-sm text-center text-black border-separate border-spacing-y-2 hidden md:table">
                 {/* Table Head */}
                 <thead className="text-sm text-[#9ca2ac] uppercase border-b border-slate-300">
                   <tr>
@@ -91,7 +91,7 @@ const Categories = () => {
                       <td className=" py-1 px-4 font-medium whitespace-nowrap rounded-l-xl">
                         {item}
                       </td>
-                      <td className=" py-1 px-4 font-medium whitespace-nowrap">
+                      <td className=" py-1 px-4 font-medium whitespace-nowrap flex justify-center items-center">
                         <img
                           className="w-[50px] h-[50px] rounded-lg object-cover"
                           src={`http://localhost:5173/Public/assets/category/${item}.jpg`}
@@ -102,8 +102,8 @@ const Categories = () => {
                         addias
                       </td>
                       <td className="py-1  gap-5  font-medium whitespace-nowrap rounded-r-xl">
-                        <div className="flex justify-start items-center gap-5">
-                        <Link className="bg-purple-100 flex justify-start w-fit items-center text-purple-800 px-3 py-2 my-1 rounded-xl hover:bg-purple-200">
+                        <div className="flex justify-center items-center gap-5">
+                        <Link className="bg-purple-100 flex justify-center w-fit items-center text-purple-800 px-3 py-2 my-1 rounded-xl hover:bg-purple-200">
                         <span className="material-symbols-rounded">edit_square</span>
                         </Link>
 
@@ -168,21 +168,23 @@ const Categories = () => {
         </div>
           </div>
         </div>
-        
+
         {show && (
   <div
-  className={`fixed lg:hidden inset-0 bg-purple-200/30 backdrop-blur-[1px] flex items-end justify-center z-[9999] transition-opacity duration-500 ${
-    show ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-  }`}
->
-    {/* Modal Content (Slide up animation) */}
-    <div
-    className={`w-full bg-white rounded-t-xl p-5 shadow-lg transition-transform duration-500 transform ${
-      show ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+    className={`fixed lg:hidden inset-0 bg-purple-200/30 backdrop-blur-[1px] flex items-end justify-center z-[9999] transition-opacity duration-500 ${
+      show ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
     }`}
+  >
+    {/* Modal Content (Slide Up) */}
+    <div
+      className={`w-full bg-white rounded-t-xl p-5 shadow-lg transition-transform duration-500 transform max-h-[85vh] overflow-y-auto ${
+        show ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+      }`}
       onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
     >
-      <h1 className="text-black font-semibold text-xl mb-2 text-center">Add Category</h1>
+      <h1 className="text-black font-semibold text-xl mb-2 text-center">
+        Add Category
+      </h1>
       <form>
         <div className="flex flex-col gap-2 w-full mb-3">
           <label className="text-black" htmlFor="name">Category Name</label>
@@ -195,62 +197,43 @@ const Categories = () => {
           />
         </div>
         <div>
-          <label className="flex justify-center items-center flex-col bg-[#f5f7f9] border border-dashed h-[238px] w-full border-slate-400 cursor-pointer" htmlFor="image">
-            <span className="material-symbols-rounded text-4xl text-black">add_a_photo</span>
+          <label
+            className="flex justify-center items-center flex-col bg-[#f5f7f9] border border-dashed h-[200px] w-full border-slate-400 cursor-pointer"
+            htmlFor="image"
+          >
+            <span className="material-symbols-rounded text-4xl text-black">
+              add_a_photo
+            </span>
             <span className="text-black">Add Image</span>
           </label>
           <input type="file" id="image" name="image" className="hidden" />
-          <div>
-            <button className="bg-purple-900 hover:bg-purple-800 cursor-pointer w-full hover:shadow-purple-500 text-white rounded-xl px-7 py-3 my-2 text-center">Add Category</button>
-          </div>
         </div>
-        {/* Close button */}
-        <button
-          className="absolute top-3 right-5 text-purple-900 text-2xl bg-purple-100 px-3 py-2 rounded-xl transition-transform duration-300 hover:rotate-90"
-          onClick={() => setShow(false)}
-        >
-          ✕
-        </button>
+
+        {/* Buttons - Always Visible */}
+        <div className="mt-4 flex flex-col gap-2">
+          <button className="bg-purple-900 hover:bg-purple-800 cursor-pointer w-full text-white rounded-xl px-7 py-3 text-center">
+            Add Category
+          </button>
+          <button
+            className="text-purple-900 text-lg bg-purple-100 px-3 py-2 rounded-xl transition-transform duration-300 "
+            onClick={() => setShow(false)}
+          >
+            ✕ Close
+          </button>
+        </div>
       </form>
     </div>
   </div>
 )}
 
-        <div className={`w-[320px] lg:w-5/12 lg:relative hidden lg:block lg:right-0 transalate-x-100 fixed ${show ? "right-0" : "-right-[350px]"} z-[9999] top-0 transition-all duration-500`}>
-          <div className="w-full pl-5">
-            <div className="bg-[#ffffff] h-screen lg:h-auto px-3 py-2 rounded-xl text-black">
-              <h1 className="text-black  font-semibold text-[16px] sm:text-xl mb-2 pt-2 w-full text-center">Add Category</h1>
-              <form>
-                <div className="flex flex-col gap-2 w-full mb-3">
-                  <label className="text-black " htmlFor="name">Category Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Enter Category Name"
-                    className="px-4 w-full text-black rounded-xl bg-[#f5f7f9] border-slate-300 border py-2 outline-none text-sm md:text-base"
-                  />
-                </div>
-                <div>
-                  <label className="flex justify-center items-center flex-col bg-[#f5f7f9] border border-dashed h-[238px] w-full border-slate-400 cursor-pointer" htmlFor="image">
-                    <span className="material-symbols-rounded text-4xl text-black">add_a_photo</span>
-                    <span className="text-black">Add Image</span>
-                  </label>
-                  <input
-                    type="file"
-                    id="image"
-                    name="image"
-                    className="hidden"
-                  />
+{/* <button
+   className="lg:hidden absolute bottom-[20%] animate-bounce right-5 transform -translate-y-1/2 bg-purple-800 text-white p-4 rounded-full shadow-xl transition-all duration-300 hover:bg-purple-900"
+  onClick={() => setShow(true)}
+>
+  <span className="material-symbols-rounded p-1">add</span>
+</button> */}
 
-                  <div className="">
-                    <button className="bg-purple-900 hover:bg-purple-800 cursor-pointer w-full hover:shadow-purple-500 text-white rounded-xl px-7 py-2 my-2 text-center"> Add Category</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   );
