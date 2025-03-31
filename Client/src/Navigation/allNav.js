@@ -57,6 +57,6 @@ export const allNav = [
        title: "Live Chat",
        role: "admin",
        icon: "forum",
-       path: "/admin/dashboard/live-chat",
+       path: "/admin/dashboard/chat-sellers",
     }
 ];
