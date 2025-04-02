@@ -48,7 +48,7 @@ const SideBar = ({ showSidebar, setShowSidebar, setIsSidebarHovered }) => {
                 <Link
                   to={n.path}
                   className={`flex items-center px-3 py-2 rounded-xl h-[48px] transition-all gap-5 mb-2 
-                    ${pathName === n.path ? "bg-purple-500 shadow-lg text-white" : "text-white bg-purple-400/20 hover:bg-purple-500 hover:py-2"}`}
+                    ${pathName === n.path ? "bg-purple-500 shadow-lg text-white" : "text-white hover:bg-purple-500 hover:py-2"}`}
                 >
                   <span className="material-symbols-rounded  flex justify-center items-center text-xl">{n.icon}</span>
                   {/* Show title only on large screens and when hovered */}
@@ -61,7 +61,7 @@ const SideBar = ({ showSidebar, setShowSidebar, setIsSidebarHovered }) => {
 
             {/* Logout Button */}
             <li>
-              <button className="flex items-center bg-purple-400/20 px-3 py-2 rounded-lg text-white hover:bg-purple-500 transition-all w-full gap-5">
+              <button className="flex items-center px-3 py-2 rounded-lg text-white hover:bg-purple-500 transition-all w-full gap-5">
                 <span className="material-symbols-rounded text-xl">logout</span>
                 <span className="opacity-100 md:group-hover:opacity-100 transition-opacity duration-300">
                   Logout
