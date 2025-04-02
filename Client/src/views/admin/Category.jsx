@@ -10,8 +10,10 @@ const Categories = () => {
     // const [searchValue, setSearchValue] = useState('');
 
   return (
-    <div className="px-4 lg:px-4 lg:pt-5">
-
+    <div className="px-4 lg:px-4 ">
+        <div className="w-full hidden lg:flex justify-between items-center text-purple-900 mb-2 ">
+          <h1 className="text-xl font-bold">Category</h1>
+        </div>
       <div className="flex lg:hidden justify-between item-center mb-6 p-4 ">
         <h1 className="text-purple-900 text-xl font-bold ">Category</h1>
         <button

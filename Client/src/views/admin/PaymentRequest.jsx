@@ -38,6 +38,9 @@ const PaymentRequest = () => {
 
   return (
     <div className="sm:px-4 lg:px-8">
+        <div className="w-full hidden lg:flex justify-between items-center text-purple-900 mb-2 ">
+          <h1 className="text-xl font-bold">Payment Requests</h1>
+        </div>
       <div className="bg-white p-4 rounded-xl w-full">
         <h2 className="text-lg sm:text-xl font-bold pb-3 text-center sm:text-left">
           Withdrawal Request

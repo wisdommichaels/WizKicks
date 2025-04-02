@@ -106,7 +106,7 @@ const AdminDashboard = () => {
           />
         </div>
       </div>
-        <div className="w-full hidden lg:flex justify-between items-center text-purple-900 mb-5 ">
+        <div className="w-full hidden lg:flex justify-between items-center text-purple-900 mb-2 ">
           <h1 className="text-xl font-bold">Admin Dashboard</h1>
         </div>
       <div className="w-full grid grid-cols-2 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5 gap-2">

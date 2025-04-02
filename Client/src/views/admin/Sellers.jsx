@@ -10,6 +10,9 @@ const Sellers = () => {
        
   return (
     <div className="lg:px-4 lg:pl-4 lg:pr-8">
+        <div className="w-full hidden lg:flex justify-between items-center text-purple-900 mb-2 ">
+          <h1 className="text-xl font-bold">Sellers</h1>
+        </div>
          <div className="w-full lg:bg-[#ffffff] rounded-xl lg:p-4  lg:px-4 overflow-hidden">
          <div className="flex flex-wrap gap-3 lg:px-3 justify-between items-center px-4">
               <select
