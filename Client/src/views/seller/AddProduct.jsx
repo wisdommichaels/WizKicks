@@ -6,6 +6,25 @@ const AddProduct = () => {
     // const [gender, setGender] = useState("");
     const [images, setImages] = useState([]);
     const [activeImage, setActiveImage] = useState(null);
+    const [catShow, setCatShow] = useState(false);
+
+    const [state, setState] = useState({
+        name: "",
+        brand: "",
+        description: "",
+        price: "",
+        stock: "",
+        discount: "",
+        category: "",
+        size: [],
+    });
+
+    const handleInpute = (e) => { 
+      setState({
+        ...state,
+        [e.target.name]: e.target.value,
+      });
+    };
   
     const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
     // const genders = ["Men", "Woman", "Unisex"];
@@ -23,9 +42,12 @@ const AddProduct = () => {
       setImages(newImages);
       if (!activeImage && newImages.length > 0) setActiveImage(newImages[0]);
     };
+
+  
+    
   
     return (
-      <div className="lg:px-4 pb-4">
+      <div className="lg:pl-4 lg:pr-7 pb-4">
         <div className=" flex justify-between items-center mb-4">
             <div className="flex gap-2 text-purple-900 justify-center items-center">
             <span className="material-symbols-rounded">add_ad</span>
@@ -43,21 +65,33 @@ const AddProduct = () => {
           <div className="col-span-2 space-y-4">
             <div className="bg-white p-6 rounded-2xl shadow-sm">
               <h3 className="font-semibold mb-4">General Information</h3>
-              <label htmlFor="text">Product Name</label>
+              <label htmlFor="product">Product Name</label>
               <input
+                onChange={handleInpute}
+                value={state.name}
                 type="text"
+                name="name"
+                id="name"
                 placeholder="Enter Product Name"
                 className="w-full py-2 px-5 rounded-xl bg-[#f5f7f9] mb-4"
               />
-              <label htmlFor="text">Brand Name</label>
+              <label htmlFor="brand">Brand Name</label>
               <input
                 type="text"
+                name="brand"
+                id="brand"
+                onChange={handleInpute}
+                value={state.brand} 
                 placeholder="Enter Brand Name"
                 className="w-full py-2 px-5 rounded-xl bg-[#f5f7f9] mb-4"
               />
-              <label htmlFor="text">Product Description</label>
+              <label htmlFor="description">Product Description</label>
               <textarea
                 rows="4"
+                name="description"
+                id="description"
+                onChange={handleInpute}
+                value={state.description}
                 placeholder="Description Product"
                 className="w-full py-2 px-5 rounded-xl focus:outline-none bg-[#f5f7f9]"
               ></textarea>
@@ -71,6 +105,10 @@ const AddProduct = () => {
                     <button
                       key={size}
                       type="button"
+                      name="size"
+                      id="size"
+                      onChange={handleInpute}
+                      value={state.size}
                       className={`px-3 py-2 rounded-xl border text-sm ${
                         selectedSizes.includes(size)
                           ? "bg-purple-100 border-purple-500 text-purple-900"
@@ -115,6 +153,10 @@ const AddProduct = () => {
                 <label htmlFor="text">Price</label>
                 <input
                   type="text"
+                  name="price"
+                  id="price"
+                  onChange={handleInpute}
+                  value={state.price}
                   placeholder="Enter Price"
                   className="p-2 rounded-xl px-4 focus:outline-none bg-[#f5f7f9]"
                 />
@@ -123,6 +165,10 @@ const AddProduct = () => {
                  <label htmlFor="text">Stoct</label>
                 <input
                   type="text"
+                  name="stock"
+                  id="stock"
+                  onChange={handleInpute}
+                  value={state.stock}
                   placeholder="Stock"
                   className="p-2  rounded-xl px-4 focus:outline-none bg-[#f5f7f9]"
                 />
@@ -131,6 +177,10 @@ const AddProduct = () => {
                  <label htmlFor="text">Discount</label>
                 <input
                   type="text"
+                  name="discount"
+                  id="discount"
+                  onChange={handleInpute}
+                  value={state.discount}
                   placeholder="Discount"
                   className="p-2  rounded-xl px-4 focus:outline-none bg-[#f5f7f9]"
                 />
@@ -191,14 +241,19 @@ const AddProduct = () => {
             </div>
   
             {/* Category */}
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
+            <div className="bg-white p-6 rounded-2xl shadow-sm relative">
               <h3 className="font-semibold mb-4">Category</h3>
               <label htmlFor="text">Product Category</label>
               <input
                 type="text"
+                name="category"
+                id="category"
+                onChange={handleInpute}
+                value={state.category}
                 placeholder="Add Product Category"
                 className="w-full p-2 px-4 rounded-xl focus:outline-none bg-[#f5f7f9]  mb-3"
               />
+              <div className={`absolute top-[1001%] bg-slate-500 w-full transition-all ${catShow ?  }`}></div>
               <button className="w-[50%] bg-purple-300 hover:bg-purple-400 text-purple-900 font-medium py-3 rounded-full">
                 Add Category
               </button>
