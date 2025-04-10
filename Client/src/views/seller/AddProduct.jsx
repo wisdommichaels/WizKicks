@@ -2,11 +2,47 @@ import{ useState } from "react";
 
 
 const AddProduct = () => {
+
+  const categorys = [
+    { 
+      id: 1,
+      name: "T-shirt" 
+    },
+    {
+      id: 2,
+      name: "Pants"
+    },
+    {
+      id: 3,
+      name: "Shoes"
+    },
+    {
+      id: 4,
+      name: "Accessories"
+    },
+    {
+      id: 5,
+      name: "Hoodies"
+    },
+    {
+      id: 6,
+      name: "Sweaters"
+    },
+  ]
+
     const [selectedSizes, setSelectedSizes] = useState([]);
     // const [gender, setGender] = useState("");
     const [images, setImages] = useState([]);
     const [activeImage, setActiveImage] = useState(null);
     const [catShow, setCatShow] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
+    const [category, setCategory] = useState("");
+    const [allCategory, setAllCategory] = useState([]);
+
+    const categorySearch = (e) => {
+      const value = e.target.value;
+      searchValue(value);
+    }
 
     const [state, setState] = useState({
         name: "",
@@ -245,15 +281,37 @@ const AddProduct = () => {
               <h3 className="font-semibold mb-4">Category</h3>
               <label htmlFor="text">Product Category</label>
               <input
+              readOnly onClick={()=> setCatShow(!catShow)}
                 type="text"
-                name="category"
                 id="category"
                 onChange={handleInpute}
-                value={state.category}
+                value={category}
                 placeholder="Add Product Category"
-                className="w-full p-2 px-4 rounded-xl focus:outline-none bg-[#f5f7f9]  mb-3"
+                className="w-full p-2 px-4 rounded-t-xl focus:outline-none bg-[#f5f7f9]  mb-3"
               />
-              <div className={`absolute top-[1001%] bg-slate-500 w-full transition-all ${catShow ?  }`}></div>
+              <div className={`absolute top-[60%] w-[87%] bg-[#f5f7f9] transition-all ${catShow ? `scale-100` : `scale-0`  }`}>
+                <div className="w-full px-4 py-2 fixed">
+                  <input onChange={categorySearch} type="text" className="px-3 py-1 focus:border-indigo-500 outline-none bg-transparent border-slate-700 w-full focus-outline-gray-300 rounded-xl overflow-hidden" placeholder="search category" />
+                </div>
+                <div className="pt-14"></div>
+                <div className="flex justify-start items-start h-[200px] overflow-x-scroll flex-col">
+                {allCategory.map((cat, i) => (
+                    <span
+                    key={i}
+                    onClick={() => {
+                      setCatShow(false);
+                      setCategory(cat.name);
+                      setSearchValue("");
+                      setAllCategory(categorys);
+                    }}
+                    className="cursor-pointer block px-2 py-1 hover:bg-gray-100 rounded"
+                    >
+                    {cat.name}
+                    </span>
+                    ))}
+
+                </div>
+              </div>
               <button className="w-[50%] bg-purple-300 hover:bg-purple-400 text-purple-900 font-medium py-3 rounded-full">
                 Add Category
               </button>
