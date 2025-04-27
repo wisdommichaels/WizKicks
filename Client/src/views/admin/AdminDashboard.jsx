@@ -192,7 +192,7 @@ const AdminDashboard = () => {
               <h2 className="text-sm font-bold text-black">
                 Recent Seller Message
               </h2>
-              <Link className="text-md font-normal text-black">
+              <Link className="text-md font-normal text-purple-800 px-3 py-1 bg-purple-100 rounded-xl hover:bg-purple-200">
                 View
               </Link>
             </div>
