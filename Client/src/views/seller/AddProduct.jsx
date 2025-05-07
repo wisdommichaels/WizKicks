@@ -37,11 +37,19 @@ const AddProduct = () => {
     const [catShow, setCatShow] = useState(false);
     const [searchValue, setSearchValue] = useState("");
     const [category, setCategory] = useState("");
-    const [allCategory, setAllCategory] = useState([]);
+    const [allCategory, setAllCategory] = useState(categorys);
 
     const categorySearch = (e) => {
       const value = e.target.value;
-      searchValue(value);
+      setSearchValue(value);
+      if (value) {
+        let srcValue = allCategory.filter(cat => cat.name.toLowerCase().indexOf(value.toLowerCase()) > -1)
+        setAllCategory(srcValue);
+        
+      } else {
+        setAllCategory(categorys);
+        
+      }
     }
 
     const [state, setState] = useState({
@@ -84,21 +92,21 @@ const AddProduct = () => {
   
     return (
       <div className="lg:pl-4 lg:pr-7 pb-4">
-        <div className=" flex justify-between items-center mb-4">
+        <div className=" flex justify-between px-4 lg:p-0 items-center mb-4">
             <div className="flex gap-2 text-purple-900 justify-center items-center">
             <span className="material-symbols-rounded">add_ad</span>
-            <h2 className="text-2xl font-bold">Add New Product</h2>
+            <h2 className="lg:text-2xl font-bold">Add New Product</h2>
             </div>
-            <button className=" flex justify-center items-center gap-2 bg-purple-900 text-white py-3 px-5 rounded-full hover:bg-purple-800 transition-all duration-200">
-                <span className="material-symbols-rounded ">check</span>
-            <p>
+            <button className=" flex justify-center items-center lg:gap-2 bg-purple-900 text-white lg:py-3 py-2 lg:px-5 px-3 rounded-full hover:bg-purple-800 transition-all duration-200">
+                <span className="material-symbols-rounded">check</span>
+            <p className="lg:text-md text-[11px] font-semibold">
                 Add product
             </p>
             </button>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:grid flex-col lg:grid-cols-3 lg:gap-6 gap-3 px-3 lg:p-0">
           {/* General Info */}
-          <div className="col-span-2 space-y-4">
+          <div className="col-span-2 space-y-3 lg:space-y-4">
             <div className="bg-white p-6 rounded-2xl shadow-sm">
               <h3 className="font-semibold mb-4">General Information</h3>
               <label htmlFor="product">Product Name</label>
@@ -109,7 +117,7 @@ const AddProduct = () => {
                 name="name"
                 id="name"
                 placeholder="Enter Product Name"
-                className="w-full py-2 px-5 rounded-xl bg-[#f5f7f9] mb-4"
+                className="w-full py-2 px-5 rounded-xl bg-[#f5f7f9] focus:outline-none mb-4"
               />
               <label htmlFor="brand">Brand Name</label>
               <input
@@ -119,21 +127,22 @@ const AddProduct = () => {
                 onChange={handleInpute}
                 value={state.brand} 
                 placeholder="Enter Brand Name"
-                className="w-full py-2 px-5 rounded-xl bg-[#f5f7f9] mb-4"
+                className="w-full py-2 px-5 focus:outline-none rounded-xl bg-[#f5f7f9] mb-4"
               />
               <label htmlFor="description">Product Description</label>
               <textarea
                 rows="4"
+                cols="10"
                 name="description"
                 id="description"
                 onChange={handleInpute}
                 value={state.description}
                 placeholder="Description Product"
-                className="w-full py-2 px-5 rounded-xl focus:outline-none bg-[#f5f7f9]"
+                className="w-full scrollbar-hide py-2 px-5 rounded-xl focus:outline-none focus:outline-nonefocus:outline-none bg-[#f5f7f9]"
               ></textarea>
   
               {/* Sizes */}
-              <div className="mt-4">
+              <div className="mt-3">
                 <h2 className="block text-sm font-medium mb-1">Size</h2>
                 <label className="block text-sm mb-1 text-gray-400">Pick Available Size</label>
                 <div className="flex flex-wrap gap-2">
@@ -188,7 +197,7 @@ const AddProduct = () => {
                 <div className="flex flex-col ">
                 <label htmlFor="text">Price</label>
                 <input
-                  type="text"
+                  type="number"
                   name="price"
                   id="price"
                   onChange={handleInpute}
@@ -212,7 +221,7 @@ const AddProduct = () => {
                 <div  className="flex flex-col">
                  <label htmlFor="text">Discount</label>
                 <input
-                  type="text"
+                  type="number"
                   name="discount"
                   id="discount"
                   onChange={handleInpute}
@@ -232,7 +241,7 @@ const AddProduct = () => {
           </div>
   
           {/* Right Column */}
-          <div className="space-y-6">
+          <div className="lg:space-y-6 space-y-3 mt-3 lg:mt-0">
             {/* Upload Img */}
             <div className="bg-white p-6 rounded-2xl shadow-sm">
               <h3 className="font-semibold mb-4">Upload Image</h3>
@@ -278,44 +287,64 @@ const AddProduct = () => {
   
             {/* Category */}
             <div className="bg-white p-6 rounded-2xl shadow-sm relative">
-              <h3 className="font-semibold mb-4">Category</h3>
-              <label htmlFor="text">Product Category</label>
-              <input
-              readOnly onClick={()=> setCatShow(!catShow)}
-                type="text"
-                id="category"
-                onChange={handleInpute}
-                value={category}
-                placeholder="Add Product Category"
-                className="w-full p-2 px-4 rounded-t-xl focus:outline-none bg-[#f5f7f9]  mb-3"
-              />
-              <div className={`absolute top-[60%] w-[87%] bg-[#f5f7f9] transition-all ${catShow ? `scale-100` : `scale-0`  }`}>
-                <div className="w-full px-4 py-2 fixed">
-                  <input onChange={categorySearch} type="text" className="px-3 py-1 focus:border-indigo-500 outline-none bg-transparent border-slate-700 w-full focus-outline-gray-300 rounded-xl overflow-hidden" placeholder="search category" />
-                </div>
-                <div className="pt-14"></div>
-                <div className="flex justify-start items-start h-[200px] overflow-x-scroll flex-col">
-                {allCategory.map((cat, i) => (
-                    <span
-                    key={i}
-                    onClick={() => {
-                      setCatShow(false);
-                      setCategory(cat.name);
-                      setSearchValue("");
-                      setAllCategory(categorys);
-                    }}
-                    className="cursor-pointer block px-2 py-1 hover:bg-gray-100 rounded"
-                    >
-                    {cat.name}
-                    </span>
-                    ))}
+  <div className="flex justify-between items-center mb-4">
+    <h3 className="font-semibold">Category</h3>
+    <button className="lg:w-[50%] w-[40%] bg-purple-300 hover:bg-purple-400 text-purple-900 text-sm lg:text-md font-medium py-3 rounded-full">
+      Add Category
+    </button>
+  </div>
 
-                </div>
-              </div>
-              <button className="w-[50%] bg-purple-300 hover:bg-purple-400 text-purple-900 font-medium py-3 rounded-full">
-                Add Category
-              </button>
-            </div>
+  <label htmlFor="category">Product Category</label>
+  <input
+    readOnly
+    onClick={() => setCatShow(!catShow)}
+    type="text"
+    id="category"
+    onChange={handleInpute}
+    value={category}
+    placeholder="Select Product Category"
+    className="w-full p-2 px-4 rounded-xl focus:outline-none bg-[#f5f7f9] mb-3"
+  />
+
+  {/* Dropdown */}
+  <div
+    className={`w-full bg-[#f5f7f9] transition-all rounded-xl ${
+      catShow ? "block" : "hidden"
+    }`}
+  >
+    {/* Search Input */}
+    <div className="w-full px-4 py-2">
+      <input
+        value={searchValue}
+        onChange={categorySearch}
+        type="text"
+        className="px-3 py-2 border border-[#e5e7eb] rounded-xl w-full outline-none focus:ring focus:ring-[#e5e7eb]"
+        placeholder="Search category"
+      />
+    </div>
+
+    {/* Scrollable list */}
+    <div className="max-h-48 overflow-y-auto px-4 pb-2 scrollbar-hide">
+      {allCategory.map((cat, i) => (
+        <span
+          key={i}
+          onClick={() => {
+            setCatShow(false);
+            setCategory(cat.name);
+            setSearchValue("");
+            setAllCategory(categorys);
+          }}
+          className={`cursor-pointer block px-2 py-1 hover:bg-gray-200 rounded ${
+            category === cat.name && "bg-gray-200"
+          }`}
+        >
+          {cat.name}
+        </span>
+      ))}
+    </div>
+  </div>
+</div>
+
           </div>
         </div>
       </div>
