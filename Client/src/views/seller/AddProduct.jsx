@@ -79,13 +79,26 @@ const AddProduct = () => {
       );
     };
   
+    // const handleImageUpload = (e) => {
+    //   const files = Array.from(e.target.files);
+    //   const imageUrls = files.map((file) => URL.createObjectURL(file));
+    //   const newImages = [...images, ...imageUrls];
+    //   setImages(newImages);
+    //   if (!activeImage && newImages.length > 0) setActiveImage(newImages[0]);
+    // };
+
     const handleImageUpload = (e) => {
-      const files = Array.from(e.target.files);
-      const imageUrls = files.map((file) => URL.createObjectURL(file));
-      const newImages = [...images, ...imageUrls];
-      setImages(newImages);
-      if (!activeImage && newImages.length > 0) setActiveImage(newImages[0]);
-    };
+      const files = e.target.files;
+      const length = files.length;
+      if (length > 0) {
+        setImages([...images, ...files]);
+        let imageUrls = [];
+        for (let i = 0; i < length; i++) {
+          imageUrls.push(URL.createObjectURL(files[i]));
+        }
+        setActiveImage(...activeImage, ...imageUrls);
+      }
+    }   
 
   
     
