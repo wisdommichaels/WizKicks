@@ -9,7 +9,7 @@ const SideBar = ({ showSidebar, setShowSidebar, setIsSidebarHovered }) => {
   const [allNav, setAllNav] = useState([]);
 
   useEffect(() => {
-    const navs = getNav("seller");
+    const navs = getNav("admin");
     setAllNav(navs);
   }, []);
 
@@ -28,8 +28,7 @@ const SideBar = ({ showSidebar, setShowSidebar, setIsSidebarHovered }) => {
         className={`fixed top-0 left-0 h-full bg-purple-900 shadow-lg transition-all duration-300 z-50 
           rounded-tr-2xl rounded-br-2xl overflow-hidden 
           ${showSidebar ? "w-64 translate-x-0" : "w-16 -translate-x-full"} 
-          md:translate-x-0 md:w-16 md:hover:w-64`}
-        
+          md:translate-x-0 hover:bg-red-700 hover:w-64`}
         onMouseEnter={() => setIsSidebarHovered(true)}
         onMouseLeave={() => setIsSidebarHovered(false)}
       >
@@ -53,7 +52,7 @@ const SideBar = ({ showSidebar, setShowSidebar, setIsSidebarHovered }) => {
                   <span className="material-symbols-rounded  flex justify-center items-center text-xl">{n.icon}</span>
                   {/* Show title only on large screens and when hovered */}
                   <span className="opacity-100 md:group-hover:opacity-100 transition-opacity duration-300">
-                    {n.title}
+                    {n.title} 
                   </span>
                 </Link>
               </li>

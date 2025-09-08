@@ -145,7 +145,7 @@ const AdminDashboard = () => {
             </h2>
             <span className="text-md font-normal text-white">Products</span>
           </div>
-          <div className="w-[40px] h-[40px] rounded-full  bg-[#08b0e8]  flex justify-center items-center text-xl  ">
+          <div className="w-[40px] h-[40px] rounded-full  bg-[#08b0e8] flex justify-center items-center text-xl  ">
             <span className="material-symbols-rounded text-white">
               add_shopping_cart
             </span>
