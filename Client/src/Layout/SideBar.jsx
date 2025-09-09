@@ -35,7 +35,7 @@ const SideBar = ({ showSidebar, setShowSidebar, setIsSidebarHovered }) => {
         {/* Logo */}
         <div className="h-[70px] flex justify-center items-center">
           <Link to="/" className="w-10 h-10">
-            <img className="w-10" src="http://localhost:5173/public/assets/logo.png" alt="" />
+            <img className="w-10" src="/assets/logo.png" alt="" />
           </Link>
         </div>
 

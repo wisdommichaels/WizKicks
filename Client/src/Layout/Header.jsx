@@ -18,7 +18,7 @@ const Header = ({ showSidebar, setShowSidebar, isSidebarHovered }) => {
             <p className="text-[12px] hidden font-normal lg:flex justify-end text-[#9ca2ac]">Admin</p>
           </div>
           <div className="flex justify-start items-start">
-            <img className="w-9 h-9 rounded-full overflow-hidden" src="http://localhost:5173/public/assets/react.svg" alt="" />
+            <img className="w-9 h-9 rounded-full overflow-hidden" src="/assets/react.svg" alt="" />
           </div>
         </div>
 

@@ -206,7 +206,7 @@ const AdminDashboard = () => {
                     <div className="flex shadow-lg w-10 h-10 p-1 bg-purple-200 justify-center items-center rounded-full">
                       <img
                         className="w-full h-full rounded-full shadow-lg"
-                        src="http://localhost:5173/public/assets/icons8-facebook (2).svg"
+                        src="/assets/icons8-facebook (2).svg"
                         alt=""
                       />
                     </div>
